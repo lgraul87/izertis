@@ -1,0 +1,77 @@
+[debug] [2023-05-05T09:58:18.147Z] ----------------------------------------------------------------------
+[debug] [2023-05-05T09:58:18.149Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\lgrau\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-05-05T09:58:18.149Z] CLI Version:   11.30.0
+[debug] [2023-05-05T09:58:18.149Z] Platform:      win32
+[debug] [2023-05-05T09:58:18.150Z] Node Version:  v16.16.0
+[debug] [2023-05-05T09:58:18.151Z] Time:          Fri May 05 2023 11:58:18 GMT+0200 (hora de verano de Europa central)
+[debug] [2023-05-05T09:58:18.151Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-05T09:58:18.237Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-05T09:58:18.238Z] > authorizing via signed-in user (lgraul87@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\lgrau\Desktop\ola\pruebaDutti2021
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2023-05-05T09:58:32.862Z] Using project from CLI flag: izertis-5c5c5
+[debug] [2023-05-05T09:58:32.864Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/izertis-5c5c5 [none]
+[debug] [2023-05-05T09:58:33.217Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/izertis-5c5c5 200
+[debug] [2023-05-05T09:58:33.218Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/izertis-5c5c5 {"projectId":"izertis-5c5c5","projectNumber":"176486790916","displayName":"izertis","name":"projects/izertis-5c5c5","resources":{"hostingSite":"izertis-5c5c5"},"state":"ACTIVE","etag":"1_561df060-d7e2-4558-aef4-d4dbc5dfdaf4"}
+[info] i  Using project izertis-5c5c5 (izertis) 
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Didn't detect a .git folder. Assuming C:\Users\lgrau\Desktop\ola\pruebaDutti2021 is the project root. 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=798927795&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2023-05-05T09:58:33.905Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2023-05-05T09:58:33.905Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2023-05-05T09:58:34.268Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2023-05-05T09:58:34.268Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2023-05-05T09:58:34.274Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2023-05-05T09:58:34.625Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2023-05-05T09:58:34.626Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"lgraul87","id":58847155,"node_id":"MDQ6VXNlcjU4ODQ3MTU1","avatar_url":"https://avatars.githubusercontent.com/u/58847155?v=4","gravatar_id":"","url":"https://api.github.com/users/lgraul87","html_url":"https://github.com/lgraul87","followers_url":"https://api.github.com/users/lgraul87/followers","following_url":"https://api.github.com/users/lgraul87/following{/other_user}","gists_url":"https://api.github.com/users/lgraul87/gists{/gist_id}","starred_url":"https://api.github.com/users/lgraul87/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/lgraul87/subscriptions","organizations_url":"https://api.github.com/users/lgraul87/orgs","repos_url":"https://api.github.com/users/lgraul87/repos","events_url":"https://api.github.com/users/lgraul87/events{/privacy}","received_events_url":"https://api.github.com/users/lgraul87/received_events","type":"User","site_admin":false,"name":"Raúl Lora Gómez","company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"public_repos":39,"public_gists":0,"followers":1,"following":1,"created_at":"2019-12-13T10:16:48Z","updated_at":"2023-03-22T20:01:46Z","private_gists":0,"total_private_repos":8,"owned_private_repos":8,"disk_usage":425511,"collaborators":1,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as lgraul87 
+[info] 
+[debug] [2023-05-05T09:58:58.486Z] >>> [apiv2][query] GET https://api.github.com/repos/lgraul87/izertis/actions/secrets/public-key type=owner
+[debug] [2023-05-05T09:58:58.781Z] <<< [apiv2][status] GET https://api.github.com/repos/lgraul87/izertis/actions/secrets/public-key 404
+[debug] [2023-05-05T09:58:58.781Z] <<< [apiv2][body] GET https://api.github.com/repos/lgraul87/izertis/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
+[debug] [2023-05-05T10:00:09.645Z] >>> [apiv2][query] GET https://api.github.com/repos/lgraul87/izertis/actions/secrets/public-key type=owner
+[debug] [2023-05-05T10:00:09.947Z] <<< [apiv2][status] GET https://api.github.com/repos/lgraul87/izertis/actions/secrets/public-key 404
+[debug] [2023-05-05T10:00:09.947Z] <<< [apiv2][body] GET https://api.github.com/repos/lgraul87/izertis/actions/secrets/public-key {"message":"Not Found","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}
+[info] 
+[info] 
+[error] !  The provided authorization cannot be used with this repository. If this repository is in an organization, did you remember to grant access? 
+[info] 
+[info] i  Action required: Visit this URL to ensure access has been granted to the appropriate organization(s) for the Firebase CLI GitHub OAuth App: 
+[info] https://github.com/settings/connections/applications/89cf50f02ac6aaed3484
+[info] 
