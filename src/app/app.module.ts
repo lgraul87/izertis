@@ -24,7 +24,6 @@ import { PrincipalModule } from './components/principal/principal.module';
     FormsModule,
     ReactiveFormsModule,
     PrincipalModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

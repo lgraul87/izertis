@@ -35,4 +35,5 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
+1- Se actualiza de version el proyecto, a angular 16, eliminando las fallas de seguridad.
 
