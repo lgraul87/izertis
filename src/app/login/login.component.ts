@@ -40,12 +40,8 @@ export class LoginComponent implements OnInit {
         password: loginForm.value.password,
       };
 
-      console.log(login);
-
       const coleccion = query(collection(this.firestore, 'account'), where('userName', '==', login.userName), where('password', '==', login.password))
       const documentos = await getDocs(coleccion);
-
-      console.log(documentos.docs.length);
 
       if (documentos.docs.length == 1) {
         this.unregistered = false;
