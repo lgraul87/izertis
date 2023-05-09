@@ -1,25 +1,29 @@
 <div class="col-md-5 col-md-offset-5 container mt-5">
     <h2 class="text-center">Iniciar sesión</h2>
     <p class="text-center">Introduzca su correo y contraseña para acceder</p>
-    <form [formGroup]="loginForm" (ngSubmit)="loginUser()" class="form">
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm)" class="form">
         <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
             <input type="text" class="form-control" placeholder="Username" formControlName="username" />
             <hr class="hr-line">
-            <div class="input-group-append form__required" *ngIf="loginForm.get('username').invalid">
+
+            <div class="input-group-append form__required" *ngIf="loginForm.get('username').invalid && isSubmited">
                 <span class="colorInvalid">
                     <i>Username is required</i>
                 </span>
             </div>
+
         </div>
         <div class="form-group mt-5" [ngClass]="{ 'has-error': loginForm.invalid }">
 
             <input type="password" class="form-control" placeholder="Password" formControlName="password" />
             <hr class="hr-line">
-            <div class="input-group-append form__required" *ngIf="loginForm.get('password').invalid">
+
+            <div class="input-group-append form__required" *ngIf="loginForm.get('password').invalid && isSubmited">
                 <span class="colorInvalid">
                     <i>Password is required</i>
                 </span>
             </div>
+
         </div>
         <div class="buttons">
 
