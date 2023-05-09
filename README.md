@@ -36,4 +36,7 @@ Navigate to `http://localhost:4200/`.
 # Notas del desarrollador:
 
 1- Se actualiza de version el proyecto, a angular 16, eliminando las fallas de seguridad.
+2- Se actualiza la estructura del proyecto, la carga de sus componentes y la navegación entre sus paginas.
+3- Se actualiza la estructura del proyecto, la carga de sus componentes y la navegación entre sus paginas.
+
 

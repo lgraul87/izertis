@@ -7,7 +7,8 @@ const routes: Routes =
   [
     { path: '', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
-    { path: 'principal', loadChildren: () => import(`./principal/principal.module`).then(m => m.PrincipalModule) }
+    { path: 'principal', loadChildren: () => import(`./principal/principal.module`).then(m => m.PrincipalModule) },
+    { path: '**', redirectTo: '', pathMatch: 'full' }
   ];
 
 @NgModule({

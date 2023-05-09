@@ -30,16 +30,17 @@ export class LoginComponent implements OnInit {
     })
   }
   loginUser() {
-    if (this.loginForm.invalid) { return }
+    if (this.loginForm.invalid) { 
+      return 
+    }else{
+      this.unregistered = true;
+
+      this.router.navigate(['/principal/ships'])
+
+    }
     // TODO : Falta integrar el servicio para autentificar al usuario
     // JSON simulando usuarios
-    var userLogin = this.loginForm.value.username;
-    var filterJson = this.users.filter(function (user) { return user.first_name === userLogin  });
-    if (filterJson.length > 0) {
-      this.router.navigate(['/principal/ships'])
-    } else {
-      this.unregistered = true;
-    }
+
   }
 }
 
