@@ -2,11 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
 import { UntypedFormGroup, Validators, UntypedFormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { collection, getDocs, query, setDoc, where } from 'firebase/firestore';
-
-
-// JSON
-import usersList from 'src/assets/json/users.json';
+import { collection, getDocs, query, where } from 'firebase/firestore';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +13,6 @@ export class LoginComponent implements OnInit {
 
   loginForm: UntypedFormGroup;
   dataLoading: boolean = false;
-  users: any = usersList;
   unregistered: boolean = false;
   invalid: boolean = false;
   isSubmited = false;
