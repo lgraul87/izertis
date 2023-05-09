@@ -7,9 +7,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
-  declarations: [LoginComponent],
+  declarations: [],
   imports: [CommonModule,BrowserModule,LoginRoutingModule, ReactiveFormsModule, FormsModule],
-  exports: [LoginComponent]
+  exports: []
 })
 
 export class LoginModule { }

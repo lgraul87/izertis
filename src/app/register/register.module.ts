@@ -8,8 +8,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
-  declarations: [RegisterComponent],
-  imports: [CommonModule, BrowserModule, RegisterRoutingModule, ReactiveFormsModule, FormsModule],
-  exports: [RegisterComponent]
+  declarations: [],
+  imports: [CommonModule, BrowserModule, ReactiveFormsModule, FormsModule],
+  exports: []
 })
 export class RegisterModule { }

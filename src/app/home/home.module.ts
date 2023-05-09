@@ -7,7 +7,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
-  declarations: [HomeComponent],
-  imports: [CommonModule, BrowserModule, HomeRoutingModule, LoginModule, RegisterModule]
+  declarations: [],
+  imports: [CommonModule, BrowserModule]
 })
 export class HomeModule { }
