@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
+import { Firestore } from '@angular/fire/firestore';
+import { UntypedFormGroup, Validators, UntypedFormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-
-// JSON
-import usersList from 'src/assets/json/users.json';
+import { collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 
 @Component({
   selector: 'app-register',
@@ -14,31 +13,48 @@ export class RegisterComponent implements OnInit {
 
   registerForm: UntypedFormGroup;
   dataLoading: boolean = false;
+  isSubmited = false;
+  isAccountRegistered = true;
+
 
   constructor(
     private fb: UntypedFormBuilder,
-    private router: Router
+    private router: Router,
+    private firestore: Firestore,
   ) { }
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      first_name: [ '', [Validators.required, Validators.minLength(3)]],
-      last_name: [ '', [Validators.required, Validators.minLength(3)]],
-      username: [ '', [Validators.required, Validators.minLength(3)]],
-      email: [ '', [Validators.required, Validators.minLength(6)]],
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.minLength(3)]],
+      userName: ['', [Validators.required, Validators.minLength(3)]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
 
     })
   }
 
-  registerUser() {
-    if (this.registerForm.invalid) { return }
-    // TODO : Falta integrar el servicio para registrar al usuario
-    // JSON simulando usuarios
-    var userLogin = this.registerForm.value;
-    usersList.push(userLogin)
-    console.log('User Register -->', usersList)
-    this.router.navigate(['/principal/ships'])
+  async registerUser(registerForm: FormGroup) {
+    this.isSubmited = true;
+    if (registerForm.valid) {
 
+      const register = {
+        firstName: registerForm.value.firstName,
+        lastName: registerForm.value.lastName,
+        userName: registerForm.value.userName,
+        password: registerForm.value.password,
+      };
+
+      const coleccion = query(collection(this.firestore, 'account'), where('userName', '==', register.userName))
+      const documentos = await getDocs(coleccion);
+
+      if (documentos.docs.length == 0) {
+        sessionStorage.setItem('userLogged', register.userName);
+        setDoc(doc(this.firestore, "account/" + register.userName), register);
+        this.router.navigate(['/principal/ships'])
+      } else {
+        this.isAccountRegistered = true;
+      }
+    }
   }
 
 }

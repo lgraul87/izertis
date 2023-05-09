@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Firestore } from '@angular/fire/firestore';
-import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { doc, setDoc } from 'firebase/firestore';
+import { collection, getDocs, query, setDoc, where } from 'firebase/firestore';
 
 
 // JSON
@@ -30,37 +30,38 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(3)]],
+      userName: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     })
   }
 
-  async loginUser(loginForm) {
+  async loginUser(loginForm: FormGroup) {
 
-    
     this.isSubmited = true;
 
-    // const coleccion = query(collection(this.firestore, 'account'), where('username', '==', loginForm.username), where('password', '==', loginForm.password))
-    // const documentos = await getDocs(coleccion);
+    if (loginForm.valid) {
+      const login = {
+        userName: loginForm.value.userName,
+        password: loginForm.value.password,
+      };
 
-    const register = {
-      email: "mail",
-      password: "pass",
-    };
+      console.log(login);
 
-    setDoc(doc(this.firestore, "account/" + "123"), register);
+      const coleccion = query(collection(this.firestore, 'account'), where('userName', '==', login.userName), where('password', '==', login.password))
+      const documentos = await getDocs(coleccion);
 
-    if (this.loginForm.invalid) {
-      return
-    } else {
-      this.unregistered = true;
+      console.log(documentos.docs.length);
 
-      this.router.navigate(['/principal/ships'])
+      if (documentos.docs.length == 1) {
+        this.unregistered = false;
+        sessionStorage.setItem('userLogged', login.userName);
+        this.router.navigate(['/principal/ships'])
 
+      } else {
+        this.unregistered = true;
+      }
     }
-    // TODO : Falta integrar el servicio para autentificar al usuario
-    // JSON simulando usuarios
-
   }
+
 }
 
