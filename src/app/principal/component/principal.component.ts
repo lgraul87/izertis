@@ -7,6 +7,10 @@ import { Films } from '../interfaces/films.dto';
 import { Species } from '../interfaces/species.dto';
 import { Vehicles } from '../interfaces/vehicles.dto';
 import { StarChips } from '../interfaces/starChips.dto';
+import { Store, select } from "@ngrx/store";
+import { decrement, increment, reset } from 'src/app/app.reducer';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-principal',
@@ -15,12 +19,13 @@ import { StarChips } from '../interfaces/starChips.dto';
 })
 export class PrincipalComponent implements OnInit {
 
-  people: People = {};
-  planets: Planets = {};
-  films: Films = {};
-  species: Species = {};
-  vehicles: Vehicles = {};
-  starChips: StarChips = {};
+  people$: People = {};
+  planets$: Planets = {};
+  films$: Films = {};
+  species$: Species = {};
+  vehicles$: Vehicles = {};
+  starChips$: StarChips = {};
+  count$: Observable<any>;
 
   peopleImg = 'assets/img/people.jpg';
   planetsImg = 'assets/img/planets.jpg';
@@ -29,9 +34,16 @@ export class PrincipalComponent implements OnInit {
   vehiclesImg = 'assets/img/vehicles.jpg';
   starchipsImg = 'assets/img/starchips.jpg';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private store: Store<{ count: number }>,
+    ) {
+
+    this.count$ = store.pipe(select('count'));
+  }
 
   ngOnInit(): void {
+    debugger
 
     this.countPeople();
     this.countPlanets();
@@ -41,55 +53,67 @@ export class PrincipalComponent implements OnInit {
     this.countStarChips();
   }
 
-  alert(){
+  alert() {
     alert('ll');
+  }
+
+  increment() {
+    this.store.dispatch(increment());
+  }
+
+  decrement() {
+    this.store.dispatch(decrement());
+  }
+
+  reset() {
+    this.store.dispatch(reset());
   }
 
 
   private countStarChips() {
     this.http.get('https://swapi.dev/api/starships/').pipe(
-      tap(starChips => {
-        this.starChips = starChips;
+      tap(starChips$ => {
+        this.starChips$ = starChips$;
       })
     ).subscribe();
   }
 
   private countVehicles() {
     this.http.get('https://swapi.dev/api/vehicles/').pipe(
-      tap(vehicles => {
-        this.vehicles = vehicles;
+      tap(vehicles$ => {
+        this.vehicles$ = vehicles$;
       })
     ).subscribe();
   }
 
   private countSpecies() {
     this.http.get('https://swapi.dev/api/species/').pipe(
-      tap(species => {
-        this.species = species;
+      tap(species$ => {
+        this.species$ = species$;
       })
     ).subscribe();
   }
 
   private countFilms() {
     this.http.get('https://swapi.dev/api/films/').pipe(
-      tap(films => {
-        this.films = films;
+      tap(films$ => {
+        this.films$ = films$;
       })
     ).subscribe();
   }
 
   private countPlanets() {
     this.http.get('https://swapi.dev/api/planets/').pipe(
-      tap(planets => {
-        this.planets = planets;
+      tap(planets$ => {
+        this.planets$ = planets$;
       })
     ).subscribe();
   }
 
   private countPeople() {
     this.http.get('https://swapi.dev/api/people/').pipe(
-      tap(people => {
-        this.people = people;
+      tap(people$ => {
+        this.people$ = people$;
       })
     ).subscribe();
   }

@@ -6,12 +6,27 @@ import { PrincipalComponent } from './component/principal.component';
 import { ShipsComponent } from './ships/component/ships.component';
 
 const routes: Routes =
-  [
-    { path: '', component: PrincipalComponent },
-    { path: 'ships', component: ShipsComponent },
-    { path: 'pageOne', component: PageOneComponent },
-    { path: 'pageTwo', component: PageTwoComponent },
-  ];
+[
+  { path: '', component: PrincipalComponent },
+  { path: 'ships', component: ShipsComponent },
+  { path: 'pageOne', component: PageOneComponent },
+  { path: 'pageTwo', component: PageTwoComponent },
+];
+
+
+
+// [{
+//   path: '', component: PrincipalComponent,
+//   children: [
+//     { path: 'ships', component: ShipsComponent },
+//     { path: 'pageOne', component: PageOneComponent },
+//     { path: 'pageTwo', component: PageTwoComponent },
+//   ]
+// },
+// { path: '**', redirectTo: '', pathMatch: 'full' }
+// ];
+
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

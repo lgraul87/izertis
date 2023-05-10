@@ -24,5 +24,6 @@ import { ShipsDetailsComponent } from './ships/ships-details/ships-details.compo
     PrincipalComponentsRoutingModule,
     HttpClientModule,
   ]
+
 })
 export class PrincipalModule { }

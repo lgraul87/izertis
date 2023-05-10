@@ -23,12 +23,12 @@
                     </div>
 
                 </div>
-                <div class="container bg-light rounded mt-4 categories" (click)="alert()">
-                    <div class="row bg-secondary category">
+                <div class="container bg-light rounded mt-4 categories">
+                    <div class="row bg-secondary category" (click)="increment()">
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="peopleImg" class="img-fluid" alt="people image">
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
                                     <span class="text-dark"> <strong>People in Star Wars</strong> </span>
@@ -37,14 +37,19 @@
                             <div class="row">
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
-                                                {{people.count}}</strong></span> persons
-                                        registered</span>
+                                                {{people$.count || 0 }}</strong></span> persons
+                                        registered - 
+                                        {{count$|async}}
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <button routerLink="ships">GO</button>
+                        </div>
                     </div>
 
-                    <div class="row bg-secondary category">
+                    <div class="row bg-secondary category" (click)="decrement()" >
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="planetsImg" class="img-fluid" alt="planets image">
 
@@ -58,13 +63,16 @@
                             <div class="row">
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
-                                                {{planets.count}} </strong> </span> planets
-                                        registered</span>
+                                                {{planets$.count || 0}} </strong> </span> planets
+                                        registered - 
+                                        {{count$|async}}
+                                    
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row bg-secondary category">
+                    <div class="row bg-secondary category" (click)="reset()">
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="filmsImg" class="img-fluid" alt="film image">
 
@@ -78,8 +86,9 @@
                             <div class="row">
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
-                                                {{films.count}} </strong></span>films
-                                        registered</span>
+                                                {{films$.count || 0}} </strong></span>films
+                                                registered - 
+                                                {{count$|async}}</span>
                                 </div>
                             </div>
                         </div>
@@ -98,7 +107,7 @@
                             <div class="row">
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
-                                                {{species.count}}</strong></span> species
+                                                {{species$.count || 0}}</strong></span> species
                                         registered</span>
                                 </div>
                             </div>
@@ -118,7 +127,7 @@
                             <div class="row">
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
-                                                {{vehicles.count}}</strong> </span> vehicles
+                                                {{vehicles$.count || 0}}</strong> </span> vehicles
                                         registered</span>
                                 </div>
                             </div>
@@ -138,7 +147,7 @@
                             <div class="row">
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
-                                                {{starChips.count}}</strong></span> Starchips
+                                                {{starChips$.count || 0}}</strong></span> Starchips
                                         registered</span>
                                 </div>
                             </div>
@@ -149,3 +158,4 @@
         </div>
     </div>
 </div>
+

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'ships-details',
@@ -16,7 +18,12 @@ export class ShipsDetailsComponent implements OnInit {
   modelDetails: string = '';
   starship_class: string = '';
 
-  constructor() {
+  count$: Observable<any>;
+
+
+  constructor(private store: Store<{ count: number }>) {
+
+    this.count$ = this.store.pipe(select('count'));
   }
 
   ngOnInit(): void {
@@ -29,7 +36,7 @@ export class ShipsDetailsComponent implements OnInit {
 
   getStarshipId(url) {
     this.shipId = url.slice(url.length - 2, url.length - 1)
-    return'https://starwars-visualguide.com/assets/img/starships/' + this.shipId + '.jpg'
+    return 'https://starwars-visualguide.com/assets/img/starships/' + this.shipId + '.jpg'
   }
 
   pageChanged(event) {
