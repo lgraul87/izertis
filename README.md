@@ -35,8 +35,13 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
-1- Se actualiza de version el proyecto, a angular 16, eliminando las fallas de seguridad.
+1- Se actualiza de version el proyecto, a angular 15, eliminando las fallas de seguridad.
 2- Se actualiza la estructura del proyecto, la carga de sus componentes y la navegación entre sus paginas.
-3- Se actualiza la estructura del proyecto, la carga de sus componentes y la navegación entre sus paginas.
+3- Se integra el proyecto con firebase hosting "https://izertis-5c5c5.web.app/".
+4- Se define la configuracion de despliegue automatica para la integracion continua del proyecto.
+5- Se integra la base de datos de firestore para el proyecto, y se despliega.
+6- Se define la logica y control de errores para la pantalla de login.
+7- Se define la logica y control de errores para la pantalla de register.
+
 
 
