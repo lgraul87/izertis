@@ -43,7 +43,6 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    debugger
 
     this.countPeople();
     this.countPlanets();
@@ -52,6 +51,10 @@ export class PrincipalComponent implements OnInit {
     this.countVehicles();
     this.countStarChips();
   }
+
+  ngOnDestory() {
+    // Empty ondestroy function to resolve the error
+ }
 
   alert() {
     alert('ll');

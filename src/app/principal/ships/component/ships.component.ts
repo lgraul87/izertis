@@ -19,4 +19,8 @@ export class ShipsComponent implements OnInit {
       console.log('SHIPS -->', this.dataList.results)
     })
   }
+
+  ngOnDestory() {
+    // Empty ondestroy function to resolve the error
+ }
 }

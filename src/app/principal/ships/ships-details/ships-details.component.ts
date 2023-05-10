@@ -34,6 +34,10 @@ export class ShipsDetailsComponent implements OnInit {
     };
   }
 
+  ngOnDestory() {
+    // Empty ondestroy function to resolve the error
+ }
+
   getStarshipId(url) {
     this.shipId = url.slice(url.length - 2, url.length - 1)
     return 'https://starwars-visualguide.com/assets/img/starships/' + this.shipId + '.jpg'
