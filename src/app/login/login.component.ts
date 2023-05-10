@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       if (documentos.docs.length == 1) {
         this.unregistered = false;
         sessionStorage.setItem('userLogged', login.userName);
-        this.router.navigate(['/principal/ships'])
+        this.router.navigate(['/principal'])
 
       } else {
         this.unregistered = true;
