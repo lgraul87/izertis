@@ -1,4 +1,4 @@
-<nav class="navbar navbar-dark principalHeader">
+<!-- <nav class="navbar navbar-dark principalHeader">
     <div class="dropdown">
         <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown"></i>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -10,5 +10,134 @@
     </div>
 </nav>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> -->
 
+<div class="container-fluid h-100 main-background">
+    <div class="row h-100">
+        <div class="col d-flex justify-content-center align-items-center header">
+
+            <div class="container bg-dark rounded star-wars-container">
+                <div class="row">
+                    <div class="col">
+                        <h2 class="text-light text-center mt-4">Star Wars</h2>
+                    </div>
+
+                </div>
+                <div class="container bg-light rounded mt-4 categories">
+                    <div class="row bg-secondary category">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img [src]="peopleImg" class="img-fluid" alt="people image">
+                        </div>
+                        <div class="col-9">
+                            <div class="row ">
+                                <div class="col mt-2">
+                                    <span class="text-dark "> <strong>People in Star Wars</strong> </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mt-2">
+                                    <span class="text-dark ">There are {{people.count}} persons registered</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row bg-secondary category">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img [src]="planetsImg" class="img-fluid" alt="planets image">
+
+                        </div>
+                        <div class="col-9">
+                            <div class="row ">
+                                <div class="col mt-2">
+                                    <span class="text-dark "> <strong>Planets in Star Wars</strong> </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mt-2">
+                                    <span class="text-dark ">There are {{planets.count}} planets registered</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-secondary category">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img [src]="filmsImg" class="img-fluid" alt="people image">
+
+                        </div>
+                        <div class="col-9">
+                            <div class="row ">
+                                <div class="col mt-2">
+                                    <span class="text-dark "> <strong>Films</strong> </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mt-2">
+                                    <span class="text-dark ">People</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-secondary category">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img [src]="speciesImg" class="img-fluid" alt="people image">
+
+                        </div>
+                        <div class="col-9">
+                            <div class="row ">
+                                <div class="col mt-2">
+                                    <span class="text-dark "> <strong>Species</strong> </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mt-2">
+                                    <span class="text-dark ">People</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-secondary category">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img [src]="vehiclesImg" class="img-fluid" alt="people image">
+
+                        </div>
+                        <div class="col-9">
+                            <div class="row ">
+                                <div class="col mt-2">
+                                    <span class="text-dark "> <strong>Vehicles</strong> </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mt-2">
+                                    <span class="text-dark ">People</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row bg-secondary category">
+                        <div class="col-3 d-flex justify-content-center align-items-center">
+                            <img [src]="starchipsImg" class="img-fluid" alt="people image">
+
+                        </div>
+                        <div class="col-9">
+                            <div class="row ">
+                                <div class="col mt-2">
+                                    <span class="text-dark "> <strong>Starchips</strong> </span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col mt-2">
+                                    <span class="text-dark ">People</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
