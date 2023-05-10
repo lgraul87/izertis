@@ -42,6 +42,3 @@ Navigate to `http://localhost:4200/`.
 5- Se integra la base de datos de firestore para el proyecto, y se despliega.
 6- Se define la logica y control de errores para la pantalla de login.
 7- Se define la logica y control de errores para la pantalla de register.
-
-
-
