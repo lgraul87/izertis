@@ -32,7 +32,6 @@
 Run `npm run start` for a dev server. 
 Navigate to `http://localhost:4200/`.
 
-
 # Notas del desarrollador:
 
 1- Se actualiza de version el proyecto, a angular 15, eliminando las fallas de seguridad.
