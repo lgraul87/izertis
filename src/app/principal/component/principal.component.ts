@@ -25,7 +25,6 @@ export class PrincipalComponent implements OnInit {
   vehicles$: Vehicles = {};
   starChips$: StarChips = {}
 
-
   peopleImg = 'assets/img/people.jpg';
   planetsImg = 'assets/img/planets.jpg';
   filmsImg = 'assets/img/films.jpg';
