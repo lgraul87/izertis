@@ -27,6 +27,7 @@
     "@popperjs/core": "^2.4.4",
     "bootstrap": "^4.5.0",
     "bootstrap-icons": "^1.10.5",
+    "eslint-import-resolver-typescript": "^3.5.5",
     "firebase": "^9.21.0",
     "jest-marbles": "^2.5.1",
     "jest-preset-angular": "^13.1.0",

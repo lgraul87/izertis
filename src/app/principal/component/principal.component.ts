@@ -38,11 +38,13 @@ export class PrincipalComponent implements OnInit {
     private store: Store<{
       starChips$: any,
       species$: any
+      vehicles$: any
+      films$: any
+      planets$: any
+      people$: any
     }>,
   ) {
 
-    //  this.count$ = store.pipe(select('count'));
-    //  this.starChips$ = store.pipe(select('ships$'));
   }
 
   ngOnInit(): void {
@@ -63,7 +65,6 @@ export class PrincipalComponent implements OnInit {
     this.http.get('https://swapi.dev/api/species/').pipe(
       tap(species$ => {
         this.species$ = species$;
-        // this.store.dispatch(setSpecies(this.species$));
       })
     ).subscribe();
   }
