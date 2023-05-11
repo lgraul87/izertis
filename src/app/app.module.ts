@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 
 import { StoreModule } from '@ngrx/store';
 import {  set_films, set_people, set_planets, set_species, set_star_ships, set_vehicles } from './app.reducer';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
@@ -33,6 +34,7 @@ import {  set_films, set_people, set_planets, set_species, set_star_ships, set_v
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    NgbModule,
   ],
   bootstrap: [AppComponent]
 })

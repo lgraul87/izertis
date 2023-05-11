@@ -24,8 +24,7 @@
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
                                                 {{people$.count || 0 }}</strong></span> persons
-                                        registered -
-                                        {{count$|async}}
+                                        registered 
                                     </span>
                                 </div>
                             </div>
@@ -50,8 +49,7 @@
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
                                                 {{planets$.count || 0}} </strong> </span> planets
-                                        registered -
-                                        {{count$|async}}
+                                        registered 
 
                                     </span>
                                 </div>
@@ -76,8 +74,7 @@
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
                                                 {{films$.count || 0}} </strong></span>films
-                                        registered -
-                                        {{count$|async}}</span>
+                                        registered </span>
                                 </div>
                             </div>
                         </div>
@@ -139,7 +136,7 @@
                         <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
-                                    <span class="text-dark"> <strong>Starchips in Star Wars</strong> </span>
+                                    <span class="text-dark"> <strong>Starships in Star Wars</strong> </span>
                                 </div>
                             </div>
                             <div class="row">
@@ -154,6 +151,10 @@
                             <a class="btn btn-dark" type="button" (click)="navigateToShips()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
+                    <div class="mt-4 d-flex justify-content-center align-content-center">
+                        <button type="button" class="btn btn-secondary" routerLink="/">Log out</button>
+                    </div>
+                    
                 </div>
             </div>
         </div>

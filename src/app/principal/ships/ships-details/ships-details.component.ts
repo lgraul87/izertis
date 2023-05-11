@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { StarChips } from '../../interfaces/starChips.dto';
 
 @Component({
   selector: 'ships-details',
@@ -9,49 +10,45 @@ import { Observable } from 'rxjs';
 })
 export class ShipsDetailsComponent implements OnInit {
 
-  @Input() dataList: any;
-  config: any;
-  shipId: string = '';
-  url: string = '';
-  // Modal
-  titleDetails: string = '';
-  modelDetails: string = '';
-  starship_class: string = '';
+  starChipNgrx$: any;
+  starChip$: any;
 
-  count$: Observable<any>;
+  
+  constructor(
+    store: Store<{ starChips$: any }>,
+  ) {
 
-
-  constructor(private store: Store<{ count: number }>) {
-
-    this.count$ = this.store.pipe(select('count'));
+    this.starChipNgrx$ = store.pipe(select('starChips$'));
   }
 
   ngOnInit(): void {
-    this.config = {
-      itemsPerPage: 5,
-      currentPage: 1,
-      totalItems: this.dataList.length
-    };
+    console.log(this.starChipNgrx$.actionsObserver._value.ships);
+    
+    this.starChip$ = this.starChipNgrx$.actionsObserver._value.ships;
+
+
+    
+
+  }
+
+  getStarshipId(url) {
+
+    
+    let shipId = '';
+    for (let index = 0; index < url.length; index++) {
+      const element = url[index];
+      if (!isNaN(parseInt(element))) {
+        shipId += element
+      }
+    }
+    return 'https://starwars-visualguide.com/assets/img/starships/' + shipId + '.jpg'
   }
 
   ngOnDestory() {
     // Empty ondestroy function to resolve the error
- }
-
-  getStarshipId(url) {
-    this.shipId = url.slice(url.length - 2, url.length - 1)
-    return 'https://starwars-visualguide.com/assets/img/starships/' + this.shipId + '.jpg'
   }
 
-  pageChanged(event) {
-    this.config.currentPage = event;
-  }
 
-  openDetails(details) {
-    // $("#exampleModal").modal('show');
-    // this.titleDetails = details.name;
-    // this.modelDetails = details.model;
-    // this.starship_class = details.starship_class
-  }
+
 
 }

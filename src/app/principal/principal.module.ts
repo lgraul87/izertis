@@ -9,6 +9,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { PrincipalComponent } from './component/principal.component';
 import { ShipsComponent } from './ships/component/ships.component';
 import { ShipsDetailsComponent } from './ships/ships-details/ships-details.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { ShipsDetailsComponent } from './ships/ships-details/ships-details.compo
     BrowserModule,
     PrincipalComponentsRoutingModule,
     HttpClientModule,
+    NgbPaginationModule
   ]
 
 })

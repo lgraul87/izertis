@@ -1,12 +1,27 @@
-.ship {
-    padding: 30px;
+.main-background {
+    background: url(./../../../../assets/img/pilots.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
 }
 
-.imgSize {
-    width: 500px;
-    height: 250px;
+.star-wars-container {
+    position: absolute;
+    width: 700px;
+    height: 450px;
 }
 
-.color {
-    background-color: gainsboro;
+.ellipsis-text{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.photo{
+    height: 100px;
+}
+
+.header-card-black{
+    background-color: black;
 }

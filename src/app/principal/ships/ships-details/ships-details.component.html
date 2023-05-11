@@ -1,34 +1,53 @@
-<!-- <div class="ship" *ngFor="let ships of dataList.results ; let i = index" (click)="openDetails(ships)">
-    <div class="panel-heading">
-        <h3 class="panel-title">{{ships.name}}</h3>
-    </div>
-    <div class="panel-body text-center color">
-        <img [src]="getStarshipId(ships.url)" onError="this.src='assets/img/errorImg_x3.svg'" class="imgSize">
-    </div>
-</div>
+<div class="container-fluid h-100 main-background">
+  <div class="row h-100">
+    <div class="col d-flex justify-content-center align-items-center">
+      <div class="container rounded star-wars-container header-card-black">
+        <div class="row h-25">
+          <div class="col mt-2">
+            <div class="row p-3">
+              <div class="col-4 d-flex justify-content-center align-content-center">
+                <img class="img-fluid border border-white rounded photo" [src]="getStarshipId(starChip$[0].url)"
+                  onError="this.src='assets/img/question.jpg'" alt="ship">
+              </div>
+              <div class="col-8 text-white">
+                <div class="row">
+                  <div class="col text-white ellipsis-text">Name: {{starChip$[0].name}}</div>
+                </div>
+                <div class="row">
+                  <div class="col text-white ellipsis-text">Model: {{starChip$[0].model}}</div>
+                </div>
 
+                <div class="row">
+                  <div class="col text-white ellipsis-text">Cost in credits: {{starChip$[0].cost_in_credits}} $</div>
+                </div>
+                <div class="row">
+                  <div class="col text-white ellipsis-text">Max atmosphering speed:
+                    {{starChip$[0].max_atmosphering_speed}} Km/h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row h-75">
+          <div class="col mt-5 bg-light rounded">
+            <p class="mt-4 ml-4">The {{starChip$[0].name}} ships, model: {{starChip$[0].model}} cost
+              {{starChip$[0].cost_in_credits}}
+              credits.
+              <br>The speed ship is {{starChip$[0].max_atmosphering_speed}}.
+              <br>The capacity is: {{starChip$[0].cargo_capacity}} litres.
+              <br>The passengers capacity is: {{starChip$[0].passengers}} persons.
+              <br>The Cargo capacity is: {{starChip$[0].cargo_capacity}} Kg.
+              <br>The Star ship class is: {{starChip$[0].starship_class}} class.
+            </p>
+            <div class="d-flex justify-content-center align-items-center mt-5">
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{titleDetails}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+              <button type="button" class="btn btn-dark" routerLink="/principal">Back</button>
+
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-          <span>Model : {{modelDetails}}</span><br>
-          <span>starship_class: {{starship_class}}</span>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
+
       </div>
     </div>
-  </div> -->
-
-  <!-- <span class="text-dark">There are <span class="text-danger"> <strong>
-    </strong></span>films
-    registered - 
-    {{count$|async}}</span> -->
+  </div>
+</div>

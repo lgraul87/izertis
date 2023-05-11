@@ -10,6 +10,7 @@ import { Store } from "@ngrx/store";
 import { Observable, of } from 'rxjs';
 import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.test';
 import { Router } from '@angular/router';
+import { StarChips } from '../interfaces/starChips.dto';
 
 
 @Component({
@@ -22,11 +23,11 @@ export class PrincipalComponent implements OnInit {
   people$: People = {};
   planets$: Planets = {};
   films$: Films = {};
-  species$: any = of({});
+  species$: Species = {}
   vehicles$: Vehicles = {};
-  starChips$: any = of({});
-  count$: Observable<any>;
+  starChips$: StarChips = {}
 
+  
   peopleImg = 'assets/img/people.jpg';
   planetsImg = 'assets/img/planets.jpg';
   filmsImg = 'assets/img/films.jpg';

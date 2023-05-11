@@ -14,7 +14,7 @@ export class RegisterComponent implements OnInit {
   registerForm: UntypedFormGroup;
   dataLoading: boolean = false;
   isSubmited = false;
-  isAccountRegistered = true;
+  isAccountRegistered = false;
 
 
   constructor(
@@ -25,10 +25,10 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3)]],
-      lastName: ['', [Validators.required, Validators.minLength(3)]],
-      userName: ['', [Validators.required, Validators.minLength(3)]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      firstName: ['', [Validators.required, Validators.minLength(1)]],
+      lastName: ['', [Validators.required, Validators.minLength(1)]],
+      userName: ['', [Validators.required, Validators.minLength(1)]],
+      password: ['', [Validators.required, Validators.minLength(1)]],
 
     })
   }
@@ -48,9 +48,10 @@ export class RegisterComponent implements OnInit {
       const documentos = await getDocs(coleccion);
 
       if (documentos.docs.length == 0) {
+        this.isAccountRegistered = false;
         sessionStorage.setItem('userLogged', register.userName);
         setDoc(doc(this.firestore, "account/" + register.userName), register);
-        this.router.navigate(['/principal/ships'])
+        this.router.navigate(['/principal'])
       } else {
         this.isAccountRegistered = true;
       }

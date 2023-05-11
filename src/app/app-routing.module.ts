@@ -6,6 +6,7 @@ import { ShipsComponent } from './principal/ships/component/ships.component';
 import { PageOneComponent } from './principal/page-one/page-one.component';
 import { PageTwoComponent } from './principal/page-two/page-two.component';
 import { PrincipalComponent } from './principal/component/principal.component';
+import { ShipsDetailsComponent } from './principal/ships/ships-details/ships-details.component';
 
 const routes: Routes =
   [
@@ -16,6 +17,7 @@ const routes: Routes =
       children: [
         { path: '', component: PrincipalComponent },
         { path: 'ships', component: ShipsComponent },
+        { path: 'ship-details', component: ShipsDetailsComponent },
         { path: 'pageOne', component: PageOneComponent },
         { path: 'pageTwo', component: PageTwoComponent },
       ]

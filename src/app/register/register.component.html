@@ -67,7 +67,7 @@
 
             <button type="button" class="btn buttons__register" routerLink="/">Cancelar</button>
         </div>
-        <div class="input-group-append form__required mt-5" *ngIf="isAccountRegistered && isSubmited">
+        <div class="input-group-append form__required mt-5" *ngIf="isAccountRegistered === true && isSubmited">
             <span class="colorInvalid">
                 <i>The account exist</i>
             </span>
