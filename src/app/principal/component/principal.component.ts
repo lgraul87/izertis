@@ -1,15 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { Films } from '../interfaces/films.dto';
-import { Species } from '../interfaces/species.dto';
-import { Vehicles } from '../interfaces/vehicles.dto';
 import { Store } from "@ngrx/store";
 import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.test';
 import { Router } from '@angular/router';
-import { StarChips } from '../interfaces/star-chips.dto';
 import { People } from '../interfaces/people.dto';
 import { Planets } from '../interfaces/planets.dto';
+import { Films } from '../interfaces/films.dto';
+import { Species } from '../interfaces/species.dto';
+import { Vehicles } from '../interfaces/vehicles.dto';
+import { StarChips } from '../interfaces/star-chips.dto';
 
 @Component({
   selector: 'app-principal',
