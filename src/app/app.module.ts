@@ -12,7 +12,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './app.test';
+import {  set_films, set_people, set_planets, set_species, set_star_ships, set_vehicles } from './app.reducer';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],
@@ -22,7 +22,14 @@ import { counterReducer } from './app.test';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot({ count: counterReducer }),
+    StoreModule.forRoot({
+      people$: set_people,
+      planets$: set_planets,
+      films$: set_films,
+      species$: set_species,
+      vehicles$: set_vehicles,
+      starChips$: set_star_ships,
+    }),
 
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),

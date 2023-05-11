@@ -1,20 +1,6 @@
-<!-- <nav class="navbar navbar-dark principalHeader">
-    <div class="dropdown">
-        <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown"></i>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" [routerLink]="'ships'">Ships</a>
-            <a class="dropdown-item" [routerLink]="'pageOne'">Page One</a>
-            <a class="dropdown-item" [routerLink]="'pageTwo'">Page Two</a>
-            <a class="dropdown-item" [routerLink]="''">Login</a>
-        </div>
-    </div>
-</nav>
-
-<router-outlet></router-outlet> -->
-
 <div class="container-fluid h-100 main-background">
     <div class="row h-100">
-        <div class="col d-flex justify-content-center align-items-center header">
+        <div class="col d-flex justify-content-center align-items-center">
 
             <div class="container bg-dark rounded star-wars-container fade-in">
                 <div class="row">
@@ -24,7 +10,7 @@
 
                 </div>
                 <div class="container bg-light rounded mt-4 categories">
-                    <div class="row bg-secondary category" (click)="increment()">
+                    <div class="row bg-secondary category">
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="peopleImg" class="img-fluid" alt="people image">
                         </div>
@@ -45,11 +31,11 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-dark" type="button" (click)="navigateToPeople()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
 
-                    <div class="row bg-secondary category" (click)="decrement()">
+                    <div class="row bg-secondary category">
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="planetsImg" class="img-fluid" alt="planets image">
 
@@ -72,10 +58,10 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-dark" type="button" (click)="navigateToPlanets()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
-                    <div class="row bg-secondary category" (click)="reset()">
+                    <div class="row bg-secondary category">
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="filmsImg" class="img-fluid" alt="films image">
 
@@ -96,7 +82,7 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-dark" type="button" (click)="navigateToFilms()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                     <div class="row bg-secondary category">
@@ -119,7 +105,7 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-dark" type="button" (click)="navigateToSpecies()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                     <div class="row bg-secondary category">
@@ -142,7 +128,7 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-dark" type="button" (click)="navigateToVehicles()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
 
@@ -165,7 +151,7 @@
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                            <a class="btn btn-dark" type="button" (click)="navigateToShips()"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                 </div>

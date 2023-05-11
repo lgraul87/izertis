@@ -1,14 +1,54 @@
-import { createReducer, on } from '@ngrx/store';
-import { decrement, increment, reset } from './app.reducer';
- 
-export const initialState = 0;
- 
-const _counterReducer = createReducer(initialState,
-  on(increment, state => state + 1),
-  on(decrement, state => state - 1),
-  on(reset, state => 0),
-);
- 
-export function counterReducer(state, action) {
-  return _counterReducer(state, action);
+// import { createReducer, on } from '@ngrx/store';
+// import { decrement, increment, reset, reset2, set_observable } from './app.reducer';
+
+// export const initialState = {};
+
+// const _counterReducer = createReducer(initialState,
+//   on(set_observable, state => state)
+// );
+
+// export function setObservable(state, action) {
+//   return _counterReducer(state, action);
+// }
+
+export const setShips = (ships) => {
+  return {
+    type: 'ships',
+    ships
+  }
+}
+
+export const setSpecies = (species) => {
+  return {
+    type: 'species',
+    species
+  }
+}
+
+export const setFilms = (films) => {
+  return {
+    type: 'films',
+    films
+  }
+}
+
+export const setVehicles = (vehicles) => {
+  return {
+    type: 'vehicles',
+    vehicles
+  }
+}
+
+export const setPeople = (people) => {
+  return {
+    type: 'people',
+    people
+  }
+}
+
+export const setPlanets = (planets) => {
+  return {
+    type: 'planets',
+    planets
+  }
 }

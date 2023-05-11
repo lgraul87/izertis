@@ -1,0 +1,24 @@
+.main-background {
+    background: url(./../../../../assets/img/hangar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100vh;
+}
+
+.star-wars-container {
+    position: absolute;
+    width: 900px;
+    height: 350px;
+}
+
+.ship-target {
+
+    cursor: pointer;
+}
+
+.ship-name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}

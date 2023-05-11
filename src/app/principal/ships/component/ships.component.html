@@ -1,3 +1,30 @@
 <!-- <div class="container">
         <ships-details [dataList]="dataList"></ships-details>
 </div> -->
+<!-- {{this.starChips$.count || 0}} -->
+
+<div class="container-fluid h-100 main-background">
+        <div class="row h-100">
+                <div class="col d-flex justify-content-center align-items-center">
+                        <div class="container bg-dark rounded star-wars-container">
+                                <div class="row h-100 d-flex justify-content-center align-content-center">
+                                        <div class="col-2 ship-target m-1" *ngFor="let ship of this.starChips$.results">
+                                                <div class="row">
+                                                        <div class="col m-0 p-0">
+                                                                <img class="img-fluid"
+                                                                        src="https://starwars-visualguide.com/assets/img/starships/5.jpg"
+                                                                        alt="">
+                                                        </div>
+                                                </div>
+                                                <div class="row">
+                                                        <span class="ml-2 ship-name">{{ship.name}}</span>
+
+
+                                                </div>
+
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
+</div>

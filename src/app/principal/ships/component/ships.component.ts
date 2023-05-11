@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ShipsService } from '../services/ships.service';
-
+import { Store, select } from '@ngrx/store';
+import { StarChips } from '../../interfaces/starChips.dto';
 
 @Component({
   selector: 'app-ships',
@@ -9,18 +9,19 @@ import { ShipsService } from '../services/ships.service';
 })
 export class ShipsComponent implements OnInit {
 
-  public dataList: any = [];
+  starChipsNgrx$: any;
+  starChips$: StarChips;
 
-  constructor(private shipsService: ShipsService) { }
+  constructor(store: Store<{ starChips$: any }>) {
+    this.starChipsNgrx$ = store.pipe(select('starChips$'));
+  }
 
-  ngOnInit(): void {
-    this.shipsService.getShips().subscribe(ships => {
-      this.dataList = ships;
-      console.log('SHIPS -->', this.dataList.results)
-    })
+  ngOnInit() {
+    console.log(this.starChipsNgrx$.actionsObserver._value);
+    this.starChips$ = this.starChipsNgrx$.actionsObserver._value.ships;
   }
 
   ngOnDestory() {
-    // Empty ondestroy function to resolve the error
- }
+  }
+
 }

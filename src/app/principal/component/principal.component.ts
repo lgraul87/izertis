@@ -6,10 +6,10 @@ import { Planets } from '../interfaces/Planets.dto';
 import { Films } from '../interfaces/films.dto';
 import { Species } from '../interfaces/species.dto';
 import { Vehicles } from '../interfaces/vehicles.dto';
-import { StarChips } from '../interfaces/starChips.dto';
-import { Store, select } from "@ngrx/store";
-import { decrement, increment, reset } from 'src/app/app.reducer';
-import { Observable } from 'rxjs';
+import { Store } from "@ngrx/store";
+import { Observable, of } from 'rxjs';
+import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.test';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -22,9 +22,9 @@ export class PrincipalComponent implements OnInit {
   people$: People = {};
   planets$: Planets = {};
   films$: Films = {};
-  species$: Species = {};
+  species$: any = of({});
   vehicles$: Vehicles = {};
-  starChips$: StarChips = {};
+  starChips$: any = of({});
   count$: Observable<any>;
 
   peopleImg = 'assets/img/people.jpg';
@@ -36,10 +36,15 @@ export class PrincipalComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private store: Store<{ count: number }>,
-    ) {
+    private router: Router,
+    private store: Store<{
+      starChips$: any,
+      species$: any
+    }>,
+  ) {
 
-    this.count$ = store.pipe(select('count'));
+    //  this.count$ = store.pipe(select('count'));
+    //  this.starChips$ = store.pipe(select('ships$'));
   }
 
   ngOnInit(): void {
@@ -53,25 +58,17 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnDestory() {
-    // Empty ondestroy function to resolve the error
- }
-
-  alert() {
-    alert('ll');
   }
 
-  increment() {
-    this.store.dispatch(increment());
-  }
 
-  decrement() {
-    this.store.dispatch(decrement());
+  private countSpecies() {
+    this.http.get('https://swapi.dev/api/species/').pipe(
+      tap(species$ => {
+        this.species$ = species$;
+        // this.store.dispatch(setSpecies(this.species$));
+      })
+    ).subscribe();
   }
-
-  reset() {
-    this.store.dispatch(reset());
-  }
-
 
   private countStarChips() {
     this.http.get('https://swapi.dev/api/starships/').pipe(
@@ -89,13 +86,7 @@ export class PrincipalComponent implements OnInit {
     ).subscribe();
   }
 
-  private countSpecies() {
-    this.http.get('https://swapi.dev/api/species/').pipe(
-      tap(species$ => {
-        this.species$ = species$;
-      })
-    ).subscribe();
-  }
+
 
   private countFilms() {
     this.http.get('https://swapi.dev/api/films/').pipe(
@@ -120,4 +111,34 @@ export class PrincipalComponent implements OnInit {
       })
     ).subscribe();
   }
+
+  navigateToShips() {
+    this.store.dispatch(setShips(this.starChips$));
+    this.router.navigate(['/principal/ships']);
+  }
+  navigateToSpecies() {
+    this.store.dispatch(setSpecies(this.species$));
+    this.router.navigate(['/principal/ships']);
+  }
+
+  navigateToPlanets() {
+    this.store.dispatch(setPlanets(this.planets$));
+    this.router.navigate(['/principal/ships']);
+  }
+
+  navigateToVehicles() {
+    this.store.dispatch(setVehicles(this.vehicles$));
+    this.router.navigate(['/principal/ships']);
+  }
+
+  navigateToPeople() {
+    this.store.dispatch(setPeople(this.people$));
+    this.router.navigate(['/principal/ships']);
+  }
+
+  navigateToFilms() {
+    this.store.dispatch(setFilms(this.films$));
+    this.router.navigate(['/principal/ships']);
+  }
+
 }
