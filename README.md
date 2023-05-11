@@ -34,14 +34,16 @@ Navigate to `http://localhost:4200/`.
 
 # Notas del desarrollador:
 
-1  - Se actualiza de version el proyecto, a angular 15, eliminando las fallas de seguridad.
+1  - Se actualiza la version del proyecto, a angular 15, eliminando los fallos de seguridad.
 2  - Se actualiza la estructura del proyecto, la carga de sus componentes y la navegación entre sus paginas.
-3  - Se integra el proyecto con firebase hosting "https://izertis-5c5c5.web.app/".
-4  - Se define la configuracion de despliegue automatica para la integracion continua del proyecto.
-5  - Se integra la base de datos de firestore para el proyecto, y se despliega.
+3  - Se integra el proyecto con Firebase Hosting "https://izertis-5c5c5.web.app/".
+4  - Se define la configuracion de despliegue automatico para la integracion continua del proyecto.
+5  - Se integra la base de datos de Firestore para el proyecto, y se despliega.
 6  - Se define la logica y control de errores para la pantalla de login.
 7  - Se define la logica y control de errores para la pantalla de register.
 8  - Se define la pantalla principal.
-9  - Se define redux en la comunicacion con la pantalla principal y ships, usando control de estado a traves de boton.
+9  - Se define Redux en la comunicacion con la pantalla principal, a traves de evento de boton.
 10 - Se definen interfaces (films, ships, vehicles, planets ...).
 11 - Se añaden imagenes para las cards de ships
+12 - Se definen las funcionalidades de errores para login, register, imagenes etc...
+13 - Se definen un test para un formulario de login
