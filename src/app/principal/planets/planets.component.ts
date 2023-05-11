@@ -71,12 +71,4 @@ export class PlanetsComponent implements OnInit {
     }
     return 'https://starwars-visualguide.com/assets/img/planets/' + planetsId + '.jpg'
   }
-
-  navigateToPlanetsDetail(url) {
-    const planets = this.planets$.results.filter((e:any) => e.url == url)
-    this.store.dispatch(setPlanets(planets));
-
-    this.router.navigate(['/principal/planets-details']);
-   }
-
 }

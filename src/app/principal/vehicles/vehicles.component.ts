@@ -71,12 +71,4 @@ export class VehiclesComponent implements OnInit {
     }
     return 'https://starwars-visualguide.com/assets/img/vehicles/' + vehiclesId + '.jpg'
   }
-
-  navigateToVehiclesDetail(url) {
-    const vehicles = this.vehicles$.results.filter((e:any) => e.url == url)
-    this.store.dispatch(setVehicles(vehicles));
-
-    this.router.navigate(['/principal/vehicles-details']);
-   }
-
 }

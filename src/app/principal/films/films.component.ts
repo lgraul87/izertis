@@ -72,11 +72,4 @@ export class FilmsComponent implements OnInit {
     return 'https://starwars-visualguide.com/assets/img/films/' + filmId + '.jpg'
   }
 
-  navigateToFilmDetail(url) {
-    const film = this.films$.results.filter((e:any) => e.url == url)
-    this.store.dispatch(setFilms(film));
-
-    this.router.navigate(['/principal/film-details']);
-   }
-
 }

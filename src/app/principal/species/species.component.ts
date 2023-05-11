@@ -71,12 +71,4 @@ export class SpeciesComponent implements OnInit {
     }
     return 'https://starwars-visualguide.com/assets/img/species/' + speciesId + '.jpg'
   }
-
-  navigateToSpeciesDetail(url) {
-    const species = this.species$.results.filter((e:any) => e.url == url)
-    this.store.dispatch(setSpecies(species));
-
-    this.router.navigate(['/principal/species-details']);
-   }
-
 }

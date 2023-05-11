@@ -72,12 +72,4 @@ export class PeopleComponent implements OnInit {
     }
     return 'https://starwars-visualguide.com/assets/img/people/' + peopleId + '.jpg'
   }
-
-  navigateToPeopleDetail(url) {
-    const people = this.people$.results.filter((e:any) => e.url == url)
-    this.store.dispatch(setPeople(people));
-
-    this.router.navigate(['/principal/people-details']);
-   }
-
 }

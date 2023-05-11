@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 
 @Component({
-  selector: 'ships-details',
+  selector: 'app-ships-details',
   templateUrl: './ships-details.component.html',
   styleUrls: ['./ships-details.component.scss']
 })

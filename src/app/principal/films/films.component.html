@@ -9,13 +9,13 @@
                             <div class="col m-0 p-0">
                                 <img class="img-fluid border border-white rounded img-selected"
                                     [src]="getFilmsId(film.url)" onError="this.src='assets/img/question.jpg'"
-                                    alt="image film" (click)="navigateToFilmDetail(film.url)">
+                                    alt="image film">
                             </div>
 
                         </div>
 
                         <div class="row">
-                            <span class="ml-2 text-white film-name">{{film.name}}</span>
+                            <span class="ml-2 text-white film-name">{{film.title}}</span>
                         </div>
 
                     </div>
