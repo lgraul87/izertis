@@ -38,23 +38,23 @@
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
                                                 {{people$.count || 0 }}</strong></span> persons
-                                        registered - 
+                                        registered -
                                         {{count$|async}}
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-2 d-flex justify-content-center align-items-center">
-                            <button routerLink="ships">GO</button>
+                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
 
-                    <div class="row bg-secondary category" (click)="decrement()" >
+                    <div class="row bg-secondary category" (click)="decrement()">
                         <div class="col-3 d-flex justify-content-center align-items-center">
                             <img [src]="planetsImg" class="img-fluid" alt="planets image">
 
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
                                     <span class="text-dark"> <strong>Planets in Star Wars</strong> </span>
@@ -64,20 +64,23 @@
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
                                                 {{planets$.count || 0}} </strong> </span> planets
-                                        registered - 
+                                        registered -
                                         {{count$|async}}
-                                    
+
                                     </span>
                                 </div>
                             </div>
                         </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                        </div>
                     </div>
                     <div class="row bg-secondary category" (click)="reset()">
                         <div class="col-3 d-flex justify-content-center align-items-center">
-                            <img [src]="filmsImg" class="img-fluid" alt="film image">
+                            <img [src]="filmsImg" class="img-fluid" alt="films image">
 
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
                                     <span class="text-dark"> <strong>Star Wars's Films</strong> </span>
@@ -87,10 +90,13 @@
                                 <div class="col mt-2">
                                     <span class="text-dark">There are <span class="text-danger"> <strong>
                                                 {{films$.count || 0}} </strong></span>films
-                                                registered - 
-                                                {{count$|async}}</span>
+                                        registered -
+                                        {{count$|async}}</span>
                                 </div>
                             </div>
+                        </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
                         </div>
                     </div>
                     <div class="row bg-secondary category">
@@ -98,7 +104,7 @@
                             <img [src]="speciesImg" class="img-fluid" alt="species image">
 
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
                                     <span class="text-dark"> <strong>Species in Star Wars</strong> </span>
@@ -112,13 +118,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                        </div>
                     </div>
                     <div class="row bg-secondary category">
                         <div class="col-3 d-flex justify-content-center align-items-center">
-                            <img [src]="vehiclesImg" class="img-fluid" alt="people image">
+                            <img [src]="vehiclesImg" class="img-fluid" alt="vehicle image">
 
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
                                     <span class="text-dark"> <strong>Vehicles in Star Wars</strong> </span>
@@ -132,13 +141,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                        </div>
                     </div>
+
                     <div class="row bg-secondary category">
                         <div class="col-3 d-flex justify-content-center align-items-center">
-                            <img [src]="starchipsImg" class="img-fluid" alt="people image">
-
+                            <img [src]="starchipsImg" class="img-fluid" alt="starchips image">
                         </div>
-                        <div class="col-9">
+                        <div class="col-7">
                             <div class="row ">
                                 <div class="col mt-2">
                                     <span class="text-dark"> <strong>Starchips in Star Wars</strong> </span>
@@ -152,10 +164,11 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-2 d-flex justify-content-center align-items-center">
+                            <a class="btn btn-dark" type="button" routerLink="ships"><i class="bi bi-eye"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
