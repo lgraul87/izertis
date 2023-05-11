@@ -1,13 +1,14 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { StarChips } from '../../interfaces/starChips.dto';
+import { StarChips } from '../../interfaces/star-chips.dto';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import '@angular/localize/init';
 import { Router } from '@angular/router';
 import { setShips } from 'src/app/app.test';
+import '@angular/localize/init';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
+
 @Component({
   selector: 'app-ships',
   templateUrl: './ships.component.html',
@@ -15,8 +16,8 @@ const FILTER_PAG_REGEX = /[^0-9]/g;
 })
 export class ShipsComponent implements OnInit {
 
-  starChipsNgrx$: any;
-  starChips$: StarChips;
+  starShipsNgrx$: any;
+  starShips$: StarChips;
   page = 1;
 
   constructor(
@@ -25,23 +26,23 @@ export class ShipsComponent implements OnInit {
     private router: Router
 
   ) {
-    this.starChipsNgrx$ = store.pipe(select('starChips$'));
+    this.starShipsNgrx$ = store.pipe(select('starChips$'));
   }
 
   ngOnInit() {
-    this.starChips$ = this.starChipsNgrx$.actionsObserver._value.ships;
+    this.starShips$ = this.starShipsNgrx$.actionsObserver._value.ships;
   }
 
   ngOnDestory() {
   }
   selectPage(page: string) {
     this.page = parseInt(page, 10) || 1;
-    const maxSize = Math.ceil(this.starChips$.count / 10)
+    const maxSize = Math.ceil(this.starShips$.count / 10)
 
     if (this.page === 1) {
       this.http.get('https://swapi.dev/api/starships/').pipe(
         tap(starChips$ => {
-          this.starChips$ = starChips$;
+          this.starShips$ = starChips$;
         })
       ).subscribe();
     }
@@ -49,7 +50,7 @@ export class ShipsComponent implements OnInit {
     if (this.page > 1 && this.page < maxSize + 1) {
       this.http.get('https://swapi.dev/api/starships/?page=' + page).pipe(
         tap(starChips$ => {
-          this.starChips$ = starChips$;
+          this.starShips$ = starChips$;
         })
       ).subscribe();
     }
@@ -72,7 +73,7 @@ export class ShipsComponent implements OnInit {
   }
 
   navigateToShipDetail(url) {
-    const ship = this.starChips$.results.filter((e:any) => e.url == url)
+    const ship = this.starShips$.results.filter((e:any) => e.url == url)
     this.store.dispatch(setShips(ship));
 
     this.router.navigate(['/principal/ship-details']);

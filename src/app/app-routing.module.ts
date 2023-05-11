@@ -3,10 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ShipsComponent } from './principal/ships/component/ships.component';
-import { PageOneComponent } from './principal/page-one/page-one.component';
-import { PageTwoComponent } from './principal/page-two/page-two.component';
+import { PeopleComponent } from './principal/people/people.component';
+import { PlanetsComponent } from './principal/planets/planets.component';
 import { PrincipalComponent } from './principal/component/principal.component';
 import { ShipsDetailsComponent } from './principal/ships/ships-details/ships-details.component';
+import { SpeciesComponent } from './principal/species/species.component';
+import { FilmsComponent } from './principal/films/films.component';
+import { VehiclesComponent } from './principal/vehicles/vehicles.component';
 
 const routes: Routes =
   [
@@ -18,8 +21,11 @@ const routes: Routes =
         { path: '', component: PrincipalComponent },
         { path: 'ships', component: ShipsComponent },
         { path: 'ship-details', component: ShipsDetailsComponent },
-        { path: 'pageOne', component: PageOneComponent },
-        { path: 'pageTwo', component: PageTwoComponent },
+        { path: 'people', component: PeopleComponent },
+        { path: 'planets', component: PlanetsComponent },
+        { path: 'films', component: FilmsComponent },
+        { path: 'species', component: SpeciesComponent },
+        { path: 'vehicles', component: VehiclesComponent },
       ]
     },
     { path: '**', redirectTo: '', pathMatch: 'full' }

@@ -1,5 +1,5 @@
 .main-background {
-    background: url(./../../../../assets/img/hangar.jpg);
+    background: url(./../../../assets/img/hangar.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -12,11 +12,11 @@
     height: 380px;
 }
 
-.ship-target {
+.species-target {
     cursor: pointer;
 }
 
-.ship-name {
+.specie-name {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;

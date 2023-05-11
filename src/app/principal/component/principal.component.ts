@@ -1,17 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
-import { People } from '../interfaces/People.dto';
-import { Planets } from '../interfaces/Planets.dto';
 import { Films } from '../interfaces/films.dto';
 import { Species } from '../interfaces/species.dto';
 import { Vehicles } from '../interfaces/vehicles.dto';
 import { Store } from "@ngrx/store";
-import { Observable, of } from 'rxjs';
 import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.test';
 import { Router } from '@angular/router';
-import { StarChips } from '../interfaces/starChips.dto';
-
+import { StarChips } from '../interfaces/star-chips.dto';
+import { People } from '../interfaces/people.dto';
+import { Planets } from '../interfaces/planets.dto';
 
 @Component({
   selector: 'app-principal',
@@ -27,7 +25,7 @@ export class PrincipalComponent implements OnInit {
   vehicles$: Vehicles = {};
   starChips$: StarChips = {}
 
-  
+
   peopleImg = 'assets/img/people.jpg';
   planetsImg = 'assets/img/planets.jpg';
   filmsImg = 'assets/img/films.jpg';
@@ -87,8 +85,6 @@ export class PrincipalComponent implements OnInit {
     ).subscribe();
   }
 
-
-
   private countFilms() {
     this.http.get('https://swapi.dev/api/films/').pipe(
       tap(films$ => {
@@ -119,27 +115,27 @@ export class PrincipalComponent implements OnInit {
   }
   navigateToSpecies() {
     this.store.dispatch(setSpecies(this.species$));
-    this.router.navigate(['/principal/ships']);
+    this.router.navigate(['/principal/species']);
   }
 
   navigateToPlanets() {
     this.store.dispatch(setPlanets(this.planets$));
-    this.router.navigate(['/principal/ships']);
+    this.router.navigate(['/principal/planets']);
   }
 
   navigateToVehicles() {
     this.store.dispatch(setVehicles(this.vehicles$));
-    this.router.navigate(['/principal/ships']);
+    this.router.navigate(['/principal/vehicles']);
   }
 
   navigateToPeople() {
     this.store.dispatch(setPeople(this.people$));
-    this.router.navigate(['/principal/ships']);
+    this.router.navigate(['/principal/people']);
   }
 
   navigateToFilms() {
     this.store.dispatch(setFilms(this.films$));
-    this.router.navigate(['/principal/ships']);
+    this.router.navigate(['/principal/films']);
   }
 
 }

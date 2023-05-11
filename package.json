@@ -29,6 +29,8 @@
     "bootstrap-icons": "^1.10.5",
     "firebase": "^9.21.0",
     "jest-marbles": "^2.5.1",
+    "jest-preset-angular": "^13.1.0",
+    "karma": "^6.4.2",
     "ngx-pagination": "^5.0.0",
     "rxjs": "~6.6.7",
     "tslib": "^2.0.0",
@@ -40,64 +42,20 @@
     "@angular/compiler-cli": "^15.0.0",
     "@angular/language-service": "^15.0.0",
     "@angular/localize": "^15.0.0",
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.5",
+    "@babel/preset-typescript": "^7.21.5",
+    "@jest/globals": "^29.5.0",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/jest": "^26.0.15",
+    "@types/jest": "^26.0.24",
     "@types/node": "^12.11.1",
+    "babel-jest": "^29.5.0",
     "codelyzer": "^6.0.0",
     "jest": "^29.5.0",
     "protractor": "~7.0.0",
     "ts-node": "~10.9.1",
     "tslint": "~6.1.0",
     "typescript": "~4.9.5"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "./src/app/**/*.ts"
-    ],
-    "coverageReporters": [
-      "json",
-      "lcov",
-      "text",
-      "clover",
-      "html"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "lines": 12,
-        "statements": 12
-      }
-    },
-    "preset": "jest-preset-angular",
-    "setupFilesAfterEnv": [
-      "<rootDir>/src/setupJest.ts"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/dist/",
-      "<rootDir>/src/app/checkout/",
-      "<rootDir>/src/test.ts"
-    ],
-    "moduleNameMapper": {
-      "^@environments(.*)": "<rootDir>/src/environments$1",
-      "^@env/environment": "<rootDir>/src/environments/environment",
-      "^@api(.*)": "<rootDir>/src/app/idt-ecommerce-api$1",
-      "^idt-ecommerce-api(.*)": "<rootDir>/src/app/idt-ecommerce-api$1",
-      "^common(.*)": "<rootDir>/src/app/common$1"
-    },
-    "globals": {
-      "inditex": true,
-      "ts-jest": {
-        "isolatedModules": true
-      }
-    },
-    "overrides": {
-      "@angular/fire": {
-        "@angular/common": "^15.0.0",
-        "@angular/core": "^15.0.0",
-        "@angular/platform-browser": "^15.0.0",
-        "@angular/platform-browser-dynamic": "^15.0.0"
-      }
-    }
   }
 }
