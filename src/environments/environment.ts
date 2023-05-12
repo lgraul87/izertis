@@ -13,8 +13,6 @@ export const environment = {
     measurementId: "G-E0JFYK3RSX"
   },
   production: false,
-
-  species:'https://swapi.dev/api/species/'
 };
 
 /*
