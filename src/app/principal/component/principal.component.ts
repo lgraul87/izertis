@@ -9,7 +9,7 @@ import { Films } from '../interfaces/films.dto';
 import { Species } from '../interfaces/species.dto';
 import { Vehicles } from '../interfaces/vehicles.dto';
 import { StarChips } from '../interfaces/star-chips.dto';
-import { PrincipalService } from '../services/ships.service';
+import { PrincipalService } from '../services/principal.service';
 import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.reducer';
 
 @Component({
