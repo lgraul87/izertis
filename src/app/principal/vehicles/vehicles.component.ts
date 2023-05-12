@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicles } from '../component/interfaces/vehicles.dto';
+import { Vehicles } from '../interfaces/vehicles.dto';
 import { Store, select } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
