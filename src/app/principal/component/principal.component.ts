@@ -31,7 +31,7 @@ export class PrincipalComponent implements OnInit {
   filmsImg = 'assets/img/films.jpg';
   speciesImg = 'assets/img/species.jpg';
   vehiclesImg = 'assets/img/vehicles.jpg';
-  starchipsImg = 'assets/img/starchips.jpg';
+  starchipsImg = 'assets/img/starships.jpg';
 
   constructor(
     private http: HttpClient,
