@@ -48,7 +48,6 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem('userLogged', login.userName);
         this.router.navigate(['/principal'])
 
-        
       } else {
         this.unregistered = true;
       }

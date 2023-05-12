@@ -30,6 +30,9 @@ export class SpeciesComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    }
     this.species$ = this.speciesNgrx$.actionsObserver._value.species;
   }
 

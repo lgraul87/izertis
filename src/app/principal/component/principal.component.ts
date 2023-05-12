@@ -48,13 +48,17 @@ export class PrincipalComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    } else {
+      this.countPeople();
+      this.countPlanets();
+      this.countFilms();
+      this.countSpecies();
+      this.countVehicles();
+      this.countStarChips();
+    }
 
-    this.countPeople();
-    this.countPlanets();
-    this.countFilms();
-    this.countSpecies();
-    this.countVehicles();
-    this.countStarChips();
   }
 
   ngOnDestory() {

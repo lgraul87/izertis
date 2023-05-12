@@ -31,6 +31,9 @@ export class PeopleComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    }
     this.people$ = this.peopleNgrx$.actionsObserver._value.people;
   }
 

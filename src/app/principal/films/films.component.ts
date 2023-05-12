@@ -30,6 +30,9 @@ export class FilmsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    }
     this.films$ = this.filmsNgrx$.actionsObserver._value.films;
   }
 

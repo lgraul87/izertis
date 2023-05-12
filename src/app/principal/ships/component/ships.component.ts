@@ -30,6 +30,9 @@ export class ShipsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    }
     this.starShips$ = this.starShipsNgrx$.actionsObserver._value.ships;
   }
 

@@ -30,6 +30,9 @@ export class VehiclesComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    }
     this.vehicles$ = this.vehiclesNgrx$.actionsObserver._value.vehicles;
   }
 

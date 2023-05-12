@@ -30,6 +30,9 @@ export class PlanetsComponent implements OnInit {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('userLogged')) {
+      this.router.navigate(['']);
+    }
     this.planets$ = this.planetsNgrx$.actionsObserver._value.planets;
   }
 
