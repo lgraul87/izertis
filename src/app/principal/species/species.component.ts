@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Species } from '../interfaces/species.dto';
+import { Species } from '../../shared/interfaces/species.dto';
 import { Store, select } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
+import { SpecieService } from '../services/species.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -21,7 +21,7 @@ export class SpeciesComponent implements OnInit {
 
   constructor(
     private store: Store<{ species$: any }>,
-    private http: HttpClient,
+    private specieService: SpecieService,
     private router: Router
 
   ) {
@@ -42,7 +42,7 @@ export class SpeciesComponent implements OnInit {
     const maxSize = Math.ceil(this.species$.count / 10)
 
     if (this.page === 1) {
-      this.http.get('https://swapi.dev/api/species/').pipe(
+      this.specieService.selectPage().pipe(
         tap(species$ => {
           this.species$ = species$;
         })
@@ -50,7 +50,7 @@ export class SpeciesComponent implements OnInit {
     }
 
     if (this.page > 1 && this.page < maxSize + 1) {
-      this.http.get('https://swapi.dev/api/species/?page=' + page).pipe(
+      this.specieService.selectPageWithParam(page).pipe(
         tap(species$ => {
           this.species$ = species$;
         })
@@ -63,14 +63,6 @@ export class SpeciesComponent implements OnInit {
   }
 
   getSpeciesId(url) {
-
-    let speciesId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        speciesId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/species/' + speciesId + '.jpg'
+    return this.specieService.getSpeciesId(url);
   }
 }

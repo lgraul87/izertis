@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Films } from '../interfaces/films.dto';
 import { Store, select } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
+import { Films } from 'src/app/shared/interfaces/films.dto';
+import { FilmService } from '../services/films.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -13,6 +13,7 @@ const FILTER_PAG_REGEX = /[^0-9]/g;
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.scss']
 })
+
 export class FilmsComponent implements OnInit {
 
   filmsNgrx$: any;
@@ -20,10 +21,9 @@ export class FilmsComponent implements OnInit {
   page = 1;
 
   constructor(
+    private filmService: FilmService,
     private store: Store<{ films$: any }>,
-    private http: HttpClient,
     private router: Router
-
   ) {
     this.filmsNgrx$ = store.pipe(select('films$'));
   }
@@ -37,12 +37,13 @@ export class FilmsComponent implements OnInit {
 
   ngOnDestory() {
   }
+
   selectPage(page: string) {
     this.page = parseInt(page, 10) || 1;
     const maxSize = Math.ceil(this.films$.count / 10)
 
     if (this.page === 1) {
-      this.http.get('https://swapi.dev/api/films/').pipe(
+      this.filmService.selectPage().pipe(
         tap(films$ => {
           this.films$ = films$;
         })
@@ -50,7 +51,7 @@ export class FilmsComponent implements OnInit {
     }
 
     if (this.page > 1 && this.page < maxSize + 1) {
-      this.http.get('https://swapi.dev/api/films/?page=' + page).pipe(
+      this.filmService.selectPageWithParam(page).pipe(
         tap(films$ => {
           this.films$ = films$;
         })
@@ -63,15 +64,6 @@ export class FilmsComponent implements OnInit {
   }
 
   getFilmsId(url) {
-
-    let filmId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        filmId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/films/' + filmId + '.jpg'
+    return this.filmService.getFilmsId(url);
   }
-
 }

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Planets } from '../interfaces/planets.dto';
+import { Planets } from '../../shared/interfaces/planets.dto';
 import { Store, select } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
+import { PlanetService } from '../services/planets.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -21,7 +21,7 @@ export class PlanetsComponent implements OnInit {
 
   constructor(
     private store: Store<{ planets$: any }>,
-    private http: HttpClient,
+    private planetService: PlanetService,
     private router: Router
 
   ) {
@@ -42,7 +42,7 @@ export class PlanetsComponent implements OnInit {
     const maxSize = Math.ceil(this.planets$.count / 10)
 
     if (this.page === 1) {
-      this.http.get('https://swapi.dev/api/planets/').pipe(
+      this.planetService.selectPage().pipe(
         tap(planets$ => {
           this.planets$ = planets$;
         })
@@ -50,7 +50,7 @@ export class PlanetsComponent implements OnInit {
     }
 
     if (this.page > 1 && this.page < maxSize + 1) {
-      this.http.get('https://swapi.dev/api/planets/?page=' + page).pipe(
+      this.planetService.selectPageWithParam(page).pipe(
         tap(planets$ => {
           this.planets$ = planets$;
         })
@@ -63,14 +63,6 @@ export class PlanetsComponent implements OnInit {
   }
 
   getPlanetsId(url) {
-
-    let planetsId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        planetsId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/planets/' + planetsId + '.jpg'
+    return this.planetService.getPlanetsId(url);
   }
 }

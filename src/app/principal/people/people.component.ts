@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from '../interfaces/people.dto';
+import { People } from '../../shared/interfaces/people.dto';
 import { Store, select } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
+import { PeopleService } from '../services/people.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -22,9 +22,8 @@ export class PeopleComponent implements OnInit {
 
   constructor(
     private store: Store<{ people$: any }>,
-    private http: HttpClient,
+    private peopleService: PeopleService,
     private router: Router
-
   ) {
     this.peopleNgrx$ = store.pipe(select('people$'));
   }
@@ -38,12 +37,13 @@ export class PeopleComponent implements OnInit {
 
   ngOnDestory() {
   }
+
   selectPage(page: string) {
     this.page = parseInt(page, 10) || 1;
     const maxSize = Math.ceil(this.people$.count / 10)
 
     if (this.page === 1) {
-      this.http.get('https://swapi.dev/api/people/').pipe(
+      this.peopleService.selectPage().pipe(
         tap(people$ => {
           this.people$ = people$;
         })
@@ -51,7 +51,7 @@ export class PeopleComponent implements OnInit {
     }
 
     if (this.page > 1 && this.page < maxSize + 1) {
-      this.http.get('https://swapi.dev/api/people/?page=' + page).pipe(
+      this.peopleService.selectPageWithParam(page).pipe(
         tap(people$ => {
           this.people$ = people$;
         })
@@ -64,14 +64,6 @@ export class PeopleComponent implements OnInit {
   }
 
   getPeopleId(url) {
-
-    let peopleId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        peopleId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/people/' + peopleId + '.jpg'
+    return this.peopleService.getPeopleId(url);
   }
 }

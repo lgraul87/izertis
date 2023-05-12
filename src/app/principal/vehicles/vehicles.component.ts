@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicles } from '../interfaces/vehicles.dto';
+import { Vehicles } from '../../shared/interfaces/vehicles.dto';
 import { Store, select } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
+import { VehicleService } from '../services/vehicles.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -21,7 +21,7 @@ export class VehiclesComponent implements OnInit {
 
   constructor(
     private store: Store<{ vehicles$: any }>,
-    private http: HttpClient,
+    private vehicleService: VehicleService,
     private router: Router
 
   ) {
@@ -42,7 +42,7 @@ export class VehiclesComponent implements OnInit {
     const maxSize = Math.ceil(this.vehicles$.count / 10)
 
     if (this.page === 1) {
-      this.http.get('https://swapi.dev/api/vehicles/').pipe(
+      this.vehicleService.selectPage().pipe(
         tap(vehicles$ => {
           this.vehicles$ = vehicles$;
         })
@@ -50,7 +50,7 @@ export class VehiclesComponent implements OnInit {
     }
 
     if (this.page > 1 && this.page < maxSize + 1) {
-      this.http.get('https://swapi.dev/api/vehicles/?page=' + page).pipe(
+      this.vehicleService.selectPageWithParam(page).pipe(
         tap(vehicles$ => {
           this.vehicles$ = vehicles$;
         })
@@ -63,14 +63,6 @@ export class VehiclesComponent implements OnInit {
   }
 
   getVehiclesId(url) {
-
-    let vehiclesId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        vehiclesId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/vehicles/' + vehiclesId + '.jpg'
+    return this.vehicleService.getVehiclesId(url);
   }
 }

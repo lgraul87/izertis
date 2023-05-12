@@ -1,11 +1,12 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { StarChips } from '../../interfaces/star-chips.dto';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import '@angular/localize/init';
 import { setShips } from 'src/app/app.reducer';
+import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
+import { StarShipService } from '../../services/ships.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 
@@ -17,12 +18,12 @@ const FILTER_PAG_REGEX = /[^0-9]/g;
 export class ShipsComponent implements OnInit {
 
   starShipsNgrx$: any;
-  starShips$: StarChips;
+  starShips$: StarShips;
   page = 1;
 
   constructor(
     private store: Store<{ starChips$: any }>,
-    private http: HttpClient,
+    private starShipService: StarShipService,
     private router: Router
 
   ) {
@@ -43,7 +44,7 @@ export class ShipsComponent implements OnInit {
     const maxSize = Math.ceil(this.starShips$.count / 10)
 
     if (this.page === 1) {
-      this.http.get('https://swapi.dev/api/starships/').pipe(
+      this.starShipService.selectPage().pipe(
         tap(starChips$ => {
           this.starShips$ = starChips$;
         })
@@ -51,7 +52,7 @@ export class ShipsComponent implements OnInit {
     }
 
     if (this.page > 1 && this.page < maxSize + 1) {
-      this.http.get('https://swapi.dev/api/starships/?page=' + page).pipe(
+      this.starShipService.selectPageWithParam(page).pipe(
         tap(starChips$ => {
           this.starShips$ = starChips$;
         })
@@ -64,21 +65,12 @@ export class ShipsComponent implements OnInit {
   }
 
   getStarshipId(url) {
-
-    let shipId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        shipId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/starships/' + shipId + '.jpg'
+    return this.starShipService.getStarShipsId(url);
   }
 
   navigateToShipDetail(url) {
     const ship = this.starShips$.results.filter((e:any) => e.url == url)
     this.store.dispatch(setShips(ship));
-
     this.router.navigate(['/principal/ship-details']);
    }
 

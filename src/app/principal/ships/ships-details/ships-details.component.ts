@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { StarShipDetailService } from '../../services/ships-details.service';
 
 @Component({
   selector: 'app-ships-details',
@@ -11,7 +12,11 @@ export class ShipsDetailsComponent implements OnInit {
   starChipNgrx$: any;
   starChip$: any;
 
-  constructor(store: Store<{ starChips$: any }>) {
+  constructor(
+    store: Store<{ starChips$: any }>,
+    private starShipDetailService: StarShipDetailService,
+
+    ) {
     this.starChipNgrx$ = store.pipe(select('starChips$'));
   }
 
@@ -20,15 +25,7 @@ export class ShipsDetailsComponent implements OnInit {
   }
 
   getStarshipId(url) {
-
-    let shipId = '';
-    for (let index = 0; index < url.length; index++) {
-      const element = url[index];
-      if (!isNaN(parseInt(element))) {
-        shipId += element
-      }
-    }
-    return 'https://starwars-visualguide.com/assets/img/starships/' + shipId + '.jpg'
+    return this.starShipDetailService.getStarShipsId(url);
   }
 
   ngOnDestory() { }

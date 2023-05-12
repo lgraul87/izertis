@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Store } from "@ngrx/store";
 import { Router } from '@angular/router';
-import { People } from '../interfaces/people.dto';
-import { Planets } from '../interfaces/planets.dto';
-import { Films } from '../interfaces/films.dto';
-import { Species } from '../interfaces/species.dto';
-import { Vehicles } from '../interfaces/vehicles.dto';
-import { StarChips } from '../interfaces/star-chips.dto';
-import { PrincipalService } from '../services/principal.service';
 import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.reducer';
+import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
+import { People } from 'src/app/shared/interfaces/people.dto';
+import { Planets } from 'src/app/shared/interfaces/planets.dto';
+import { Films } from 'src/app/shared/interfaces/films.dto';
+import { Species } from 'src/app/shared/interfaces/species.dto';
+import { Vehicles } from 'src/app/shared/interfaces/vehicles.dto';
+import { PrincipalService } from '../services/principal.service';
 
 @Component({
   selector: 'app-principal',
@@ -24,7 +24,7 @@ export class PrincipalComponent implements OnInit {
   films$: Films = {};
   species$: Species = {}
   vehicles$: Vehicles = {};
-  starChips$: StarChips = {}
+  starChips$: StarShips = {}
 
   peopleImg = 'assets/img/people.jpg';
   planetsImg = 'assets/img/planets.jpg';
