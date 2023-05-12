@@ -6,16 +6,21 @@ import { Species } from 'src/app/shared/interfaces/species.dto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SpecieService {
+
+  private urlSpecies = 'https://swapi.dev/api/species/';
+  private param = '?page=';
+  private urlSpeciesImage = 'https://starwars-visualguide.com/assets/img/species/';
 
   constructor(private http: HttpClient) { }
 
   selectPage(): Observable<Species> {
-    return this.http.get<Species>('https://swapi.dev/api/species/');
+    return this.http.get<Species>(this.urlSpecies);
   }
 
   selectPageWithParam(page): Observable<Species> {
-    return this.http.get<Species>('https://swapi.dev/api/species/?page=' + page);
+    return this.http.get<Species>(this.urlSpecies + this.param + page);
   }
 
   getSpeciesId(url){
@@ -26,7 +31,7 @@ export class SpecieService {
         specieId += element
       }
     }
-    return 'https://starwars-visualguide.com/assets/img/species/' + specieId + '.jpg'
+    return this.urlSpeciesImage + specieId + '.jpg'
   }
   
 }

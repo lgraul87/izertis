@@ -6,19 +6,24 @@ import { Films } from 'src/app/shared/interfaces/films.dto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class FilmService {
+
+  private urlFilms = 'https://swapi.dev/api/films/';
+  private param = '?page=';
+  private urlFilmsImage = 'https://starwars-visualguide.com/assets/img/films/';
 
   constructor(private http: HttpClient) { }
 
   selectPage(): Observable<Films> {
-    return this.http.get<Films>('https://swapi.dev/api/films/');
+    return this.http.get<Films>(this.urlFilms);
   }
 
   selectPageWithParam(page): Observable<Films> {
-    return this.http.get<Films>('https://swapi.dev/api/films/?page=' + page);
+    return this.http.get<Films>(this.urlFilms + this.param + page);
   }
 
-  getFilmsId(url){
+  getFilmsId(url) {
     let filmId = '';
     for (let index = 0; index < url.length; index++) {
       const element = url[index];
@@ -26,7 +31,7 @@ export class FilmService {
         filmId += element
       }
     }
-    return 'https://starwars-visualguide.com/assets/img/films/' + filmId + '.jpg'
+    return this.urlFilmsImage + filmId + '.jpg'
   }
-  
+
 }

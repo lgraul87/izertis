@@ -6,16 +6,21 @@ import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class StarShipService {
+
+  private urlStarShips = 'https://swapi.dev/api/starships/';
+  private param = '?page=';
+  private urlStarShipsImage = 'https://starwars-visualguide.com/assets/img/starships/';
 
   constructor(private http: HttpClient) { }
 
   selectPage(): Observable<StarShips> {
-    return this.http.get<StarShips>('https://swapi.dev/api/starships/');
+    return this.http.get<StarShips>(this.urlStarShips);
   }
 
   selectPageWithParam(page): Observable<StarShips> {
-    return this.http.get<StarShips>('https://swapi.dev/api/starships/?page=' + page);
+    return this.http.get<StarShips>(this.urlStarShips + this.param + page);
   }
 
   getStarShipsId(url){
@@ -26,7 +31,7 @@ export class StarShipService {
         starShipId += element
       }
     }
-    return 'https://starwars-visualguide.com/assets/img/starships/' + starShipId + '.jpg'
+    return this.urlStarShipsImage + starShipId + '.jpg'
   }
   
 }

@@ -6,16 +6,21 @@ import { Vehicles } from 'src/app/shared/interfaces/vehicles.dto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class VehicleService {
+
+  private urlVehicles = 'https://swapi.dev/api/vehicles/';
+  private param = '?page=';
+  private urlVehiclesImage = 'https://starwars-visualguide.com/assets/img/vehicles/';
 
   constructor(private http: HttpClient) { }
 
   selectPage(): Observable<Vehicles> {
-    return this.http.get<Vehicles>('https://swapi.dev/api/vehicles/');
+    return this.http.get<Vehicles>(this.urlVehicles);
   }
 
   selectPageWithParam(page): Observable<Vehicles> {
-    return this.http.get<Vehicles>('https://swapi.dev/api/vehicles/?page=' + page);
+    return this.http.get<Vehicles>(this.urlVehicles + this.param + page);
   }
 
   getVehiclesId(url){
@@ -26,7 +31,7 @@ export class VehicleService {
         vehicleId += element
       }
     }
-    return 'https://starwars-visualguide.com/assets/img/vehicles/' + vehicleId + '.jpg'
+    return this.urlVehiclesImage + vehicleId + '.jpg'
   }
   
 }

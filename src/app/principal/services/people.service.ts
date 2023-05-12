@@ -6,16 +6,21 @@ import { People } from 'src/app/shared/interfaces/people.dto';
 @Injectable({
   providedIn: 'root'
 })
+
 export class PeopleService {
+
+  private urlPeople = 'https://swapi.dev/api/people/';
+  private param = '?page=';
+  private urlPeopleImage = 'https://starwars-visualguide.com/assets/img/people/';
 
   constructor(private http: HttpClient) { }
 
   selectPage(): Observable<People> {
-    return this.http.get<People>('https://swapi.dev/api/people/');
+    return this.http.get<People>(this.urlPeople);
   }
 
   selectPageWithParam(page): Observable<People> {
-    return this.http.get<People>('https://swapi.dev/api/people/?page=' + page);
+    return this.http.get<People>(this.urlPeople + this.param + page);
   }
 
   getPeopleId(url){
@@ -26,7 +31,7 @@ export class PeopleService {
         peopleId += element
       }
     }
-    return 'https://starwars-visualguide.com/assets/img/peoples/' + peopleId + '.jpg'
+    return this.urlPeopleImage + peopleId + '.jpg'
   }
   
 }

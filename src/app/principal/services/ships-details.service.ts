@@ -4,7 +4,10 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class StarShipDetailService {
+
+  private StarShipDetailImage = 'https://starwars-visualguide.com/assets/img/starships/';
 
   constructor(private http: HttpClient) { }
 
@@ -16,7 +19,7 @@ export class StarShipDetailService {
         starShipId += element
       }
     }
-    return 'https://starwars-visualguide.com/assets/img/starships/' + starShipId + '.jpg'
+    return this.StarShipDetailImage + starShipId + '.jpg'
   }
 
 }
