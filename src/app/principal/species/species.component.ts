@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Species } from '../interfaces/species.dto';
+import { Species } from '../component/interfaces/species.dto';
 import { Store, select } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';

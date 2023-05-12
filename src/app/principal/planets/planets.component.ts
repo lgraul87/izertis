@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Planets } from '../interfaces/planets.dto';
+import { Planets } from '../component/interfaces/planets.dto';
 import { Store, select } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';

@@ -1,6 +1,6 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { StarChips } from '../../interfaces/star-chips.dto';
+import { StarChips } from '../../component/interfaces/star-chips.dto';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';

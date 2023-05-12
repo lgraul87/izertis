@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from '../interfaces/people.dto';
+import { People } from '../component/interfaces/people.dto';
 import { Store, select } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
