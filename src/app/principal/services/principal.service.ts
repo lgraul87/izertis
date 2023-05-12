@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Films } from 'src/app/shared/interfaces/films.dto';
-import { People } from 'src/app/shared/interfaces/people.dto';
-import { Planets } from 'src/app/shared/interfaces/planets.dto';
-import { Species } from 'src/app/shared/interfaces/species.dto';
-import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
+import { Films } from 'src/app/principal/films/interfaces/films.dto';
+import { People } from 'src/app/principal/people/interfaces/people.dto';
+import { Planets } from 'src/app/principal/planets/interfaces/planets.dto';
+import { Species } from 'src/app/principal/species/interfaces/species.dto';
+import { StarShips } from 'src/app/principal/ships/interfaces/star-ships.dto';
 import { Vehicles } from 'src/app/shared/interfaces/vehicles.dto';
 
 @Injectable({

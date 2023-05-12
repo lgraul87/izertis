@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { People } from '../../shared/interfaces/people.dto';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
 import { PeopleService } from '../services/people.service';
+import { People } from '../interfaces/people.dto';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 

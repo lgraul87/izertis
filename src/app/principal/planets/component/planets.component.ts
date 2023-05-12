@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Planets } from '../../shared/interfaces/planets.dto';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
 import { PlanetService } from '../services/planets.service';
+import { Planets } from '../interfaces/planets.dto';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 

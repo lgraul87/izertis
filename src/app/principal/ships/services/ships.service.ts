@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
+import { StarShips } from 'src/app/principal/ships/interfaces/star-ships.dto';
 
 @Injectable({
   providedIn: 'root'

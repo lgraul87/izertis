@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
-import { Films } from 'src/app/shared/interfaces/films.dto';
+import { Films } from 'src/app/principal/films/interfaces/films.dto';
 import { FilmService } from '../services/films.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;

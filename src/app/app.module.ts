@@ -10,10 +10,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-
 import { StoreModule } from '@ngrx/store';
-import {  set_films, set_people, set_planets, set_species, set_star_ships, set_vehicles } from './app.actions';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { set_films, set_people, set_planets, set_species, set_star_ships, set_vehicles } from './shared/app.actions';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, RegisterComponent],

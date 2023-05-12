@@ -3,13 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { ShipsComponent } from './principal/ships/component/ships.component';
-import { PeopleComponent } from './principal/people/people.component';
-import { PlanetsComponent } from './principal/planets/planets.component';
 import { PrincipalComponent } from './principal/component/principal.component';
-import { ShipsDetailsComponent } from './principal/ships/ships-details/ships-details.component';
-import { SpeciesComponent } from './principal/species/species.component';
-import { FilmsComponent } from './principal/films/films.component';
-import { VehiclesComponent } from './principal/vehicles/vehicles.component';
+import { ShipsDetailsComponent } from './principal/ships-details/component/ships-details.component';
+import { PeopleComponent } from './principal/people/component/people.component';
+import { PlanetsComponent } from './principal/planets/component/planets.component';
+import { FilmsComponent } from './principal/films/component/films.component';
+import { SpeciesComponent } from './principal/species/component/species.component';
+import { VehiclesComponent } from './principal/vehicles/component/vehicles.component';
+
 
 const routes: Routes =
   [

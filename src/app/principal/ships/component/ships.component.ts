@@ -1,12 +1,11 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import '@angular/localize/init';
-import { setShips } from 'src/app/app.reducer';
-import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
-import { StarShipService } from '../../services/ships.service';
+import { setShips } from 'src/app/shared/app.reducer';
+import { StarShips } from 'src/app/principal/ships/interfaces/star-ships.dto';
+import { StarShipService } from '../services/ships.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 

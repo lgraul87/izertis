@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { StarShipDetailService } from '../../services/ships-details.service';
+import { StarShipDetailService } from '../services/ships-details.service';
 
 @Component({
   selector: 'app-ships-details',

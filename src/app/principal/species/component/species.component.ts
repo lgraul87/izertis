@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Species } from '../../shared/interfaces/species.dto';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
 import { SpecieService } from '../services/species.service';
+import { Species } from '../interfaces/species.dto';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 

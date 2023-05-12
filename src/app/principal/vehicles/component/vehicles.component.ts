@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Vehicles } from '../../shared/interfaces/vehicles.dto';
 import { Store, select } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
 import '@angular/localize/init';
-import { VehicleService } from '../services/vehicles.service';
+import { Vehicles } from 'src/app/shared/interfaces/vehicles.dto';
+import { VehicleService } from '../../services/vehicles.service';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 

@@ -3,14 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Store } from "@ngrx/store";
 import { Router } from '@angular/router';
-import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.reducer';
-import { StarShips } from 'src/app/shared/interfaces/star-ships.dto';
-import { People } from 'src/app/shared/interfaces/people.dto';
-import { Planets } from 'src/app/shared/interfaces/planets.dto';
-import { Films } from 'src/app/shared/interfaces/films.dto';
-import { Species } from 'src/app/shared/interfaces/species.dto';
-import { Vehicles } from 'src/app/shared/interfaces/vehicles.dto';
+import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/shared/app.reducer';
+import { StarShips } from 'src/app/principal/ships/interfaces/star-ships.dto';
+import { People } from 'src/app/principal/people/interfaces/people.dto';
+import { Planets } from 'src/app/principal/planets/interfaces/planets.dto';
+import { Films } from 'src/app/principal/films/interfaces/films.dto';
+import { Species } from 'src/app/principal/species/interfaces/species.dto';
 import { PrincipalService } from '../services/principal.service';
+import { Vehicles } from 'src/app/shared/interfaces/vehicles.dto';
 
 @Component({
   selector: 'app-principal',
