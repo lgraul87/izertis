@@ -12,7 +12,7 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 
 import { StoreModule } from '@ngrx/store';
-import {  set_films, set_people, set_planets, set_species, set_star_ships, set_vehicles } from './app.reducer';
+import {  set_films, set_people, set_planets, set_species, set_star_ships, set_vehicles } from './app.actions';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({

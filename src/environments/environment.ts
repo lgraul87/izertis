@@ -12,7 +12,9 @@ export const environment = {
     appId: "1:176486790916:web:50e9f96d5a38d6bf244251",
     measurementId: "G-E0JFYK3RSX"
   },
-  production: false
+  production: false,
+
+  species:'https://swapi.dev/api/species/'
 };
 
 /*

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { Store } from "@ngrx/store";
-import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.test';
 import { Router } from '@angular/router';
 import { People } from '../interfaces/people.dto';
 import { Planets } from '../interfaces/planets.dto';
@@ -10,6 +9,8 @@ import { Films } from '../interfaces/films.dto';
 import { Species } from '../interfaces/species.dto';
 import { Vehicles } from '../interfaces/vehicles.dto';
 import { StarChips } from '../interfaces/star-chips.dto';
+import { PrincipalService } from '../services/ships.service';
+import { setFilms, setPeople, setPlanets, setShips, setSpecies, setVehicles } from 'src/app/app.reducer';
 
 @Component({
   selector: 'app-principal',
@@ -34,18 +35,17 @@ export class PrincipalComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
+    private principalService: PrincipalService,
     private router: Router,
-    private store: Store<{
+    private store: Store  <{
       starChips$: any,
       species$: any
       vehicles$: any
       films$: any
       planets$: any
-      people$: any
-    }>,
-  ) {
-
-  }
+      people$: any 
+    }>
+  ) { }
 
   ngOnInit(): void {
     if (!sessionStorage.getItem('userLogged')) {
@@ -58,15 +58,13 @@ export class PrincipalComponent implements OnInit {
       this.countVehicles();
       this.countStarChips();
     }
-
   }
 
   ngOnDestory() {
   }
 
-
   private countSpecies() {
-    this.http.get('https://swapi.dev/api/species/').pipe(
+    this.principalService.countSpecies().pipe(
       tap(species$ => {
         this.species$ = species$;
       })
@@ -74,7 +72,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   private countStarChips() {
-    this.http.get('https://swapi.dev/api/starships/').pipe(
+    this.principalService.countStarChips().pipe(
       tap(starChips$ => {
         this.starChips$ = starChips$;
       })
@@ -82,7 +80,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   private countVehicles() {
-    this.http.get('https://swapi.dev/api/vehicles/').pipe(
+    this.principalService.countVehicles().pipe(
       tap(vehicles$ => {
         this.vehicles$ = vehicles$;
       })
@@ -90,7 +88,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   private countFilms() {
-    this.http.get('https://swapi.dev/api/films/').pipe(
+    this.principalService.countFilms().pipe(
       tap(films$ => {
         this.films$ = films$;
       })
@@ -98,7 +96,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   private countPlanets() {
-    this.http.get('https://swapi.dev/api/planets/').pipe(
+    this.principalService.countPlanets().pipe(
       tap(planets$ => {
         this.planets$ = planets$;
       })
@@ -106,7 +104,7 @@ export class PrincipalComponent implements OnInit {
   }
 
   private countPeople() {
-    this.http.get('https://swapi.dev/api/people/').pipe(
+    this.principalService.countPeople().pipe(
       tap(people$ => {
         this.people$ = people$;
       })

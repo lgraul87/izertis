@@ -4,8 +4,8 @@ import { StarChips } from '../../interfaces/star-chips.dto';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { setShips } from 'src/app/app.test';
 import '@angular/localize/init';
+import { setShips } from 'src/app/app.reducer';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;
 

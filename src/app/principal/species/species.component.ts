@@ -4,7 +4,6 @@ import { Store, select } from '@ngrx/store';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs/operators';
-import { setSpecies } from 'src/app/app.test';
 import '@angular/localize/init';
 
 const FILTER_PAG_REGEX = /[^0-9]/g;

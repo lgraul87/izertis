@@ -1,8 +1,41 @@
-import { createAction } from '@ngrx/store';
+export const setShips = (ships) => {
+  return {
+    type: 'ships',
+    ships
+  }
+}
 
-export const set_star_ships = createAction('[Ships Component] Ships');
-export const set_species = createAction('[Species Component] Species');
-export const set_films = createAction('[Films Component] Films');
-export const set_vehicles = createAction('[Vehicles Component] Vehicles');
-export const set_planets = createAction('[Planets Component] Planets');
-export const set_people = createAction('[People Component] People');
+export const setSpecies = (species) => {
+  return {
+    type: 'species',
+    species
+  }
+}
+
+export const setFilms = (films) => {
+  return {
+    type: 'films',
+    films
+  }
+}
+
+export const setVehicles = (vehicles) => {
+  return {
+    type: 'vehicles',
+    vehicles
+  }
+}
+
+export const setPeople = (people) => {
+  return {
+    type: 'people',
+    people
+  }
+}
+
+export const setPlanets = (planets) => {
+  return {
+    type: 'planets',
+    planets
+  }
+}
