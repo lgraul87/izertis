@@ -47,4 +47,5 @@ Navigate to `http://localhost:4200/`.
 11 - Se añaden imagenes para las cards de ships
 12 - Se definen las funcionalidades de errores para login, register, imagenes etc...
 13 - Se definen las pantallas de films, star ships, species, vehicles, people y planets
-14 - Se definen la pantalla de ships details
+14 - Se define la pantalla de ships details
+15 - Se define objeto de session
